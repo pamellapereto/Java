@@ -1,6 +1,7 @@
 /**
  * Jogo Minecraft (Exemplo: POO)
  */
+
 package minecraft;
 
 /**

@@ -1,6 +1,7 @@
 /**
  * POO - Fundamentos
  */
+
 package minecraft;
 
 /**
@@ -15,7 +16,7 @@ public class Bloco {
 	 */
 	public Bloco() {
 		super();
-		System.out.println("================================");
+		System.out.println("==================================");
 	}
 	
 	

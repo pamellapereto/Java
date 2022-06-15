@@ -8,6 +8,7 @@ package carros;
  * Classe Modelo
  */
 
+
 public class Carros {
 	
 		
@@ -16,7 +17,7 @@ public class Carros {
 	 */
 	public Carros() {
 		super();
-		System.out.println("================================");
+		System.out.println("*********************");
 	}
 
 		// Atributos
