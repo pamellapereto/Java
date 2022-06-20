@@ -20,7 +20,7 @@ public class Itens {
 		enxadaDiamante.textura = "Diamante";
 		enxadaDiamante.conquista = false;
 		System.out.println("Enxada de " + enxadaDiamante.textura + ", com resistência de " + enxadaDiamante.resistencia);
-		enxadaDiamante.minerar();
+		
 		enxadaDiamante.arar();
 		
 		if (enxadaDiamante.conquista == true) {
@@ -29,7 +29,7 @@ public class Itens {
 			System.out.println("Dedicação séria. Hora do plantio.");
 			System.out.println("__________________________________");
 		}
-
+		enxadaDiamante.minerar();
 	}
 
 }

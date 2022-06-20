@@ -1,6 +1,7 @@
 /**
  * POO - Tarefa (Exemplo: carros)
  */
+
 package carros;
 
 /**
@@ -19,15 +20,16 @@ public class Objetos {
 	
 	public static void main(String[] args) {
 		
-		//Criar objeto da classe Random usando o construtor padrão
-        Random geradorAleatorio = new Random();
+		//Uso da classe Random para gerar números aleatórios
+        Random gerador = new Random();
+
+        //(11) Gerar números entre 0 e 10
+        int numero = gerador.nextInt(11);
+        System.out.println("Número inteiro aleatório de 0 a 10: " + numero);
 
         
-        int numero = geradorAleatorio.nextInt(10);
-        System.out.println("Número inteiro aleatório de 0 até 10: " + numero);
-
-        	
-		// Objeto 1
+        
+		//Objeto 1
 		Carros corsa = new Carros();
 		corsa.modelo = "Corsa";
 		corsa.ano = 2017;
@@ -41,7 +43,7 @@ public class Objetos {
 		corsa.acelerar();
 		corsa.desligar();
 		
-		// Objeto 2
+		//Objeto 2
 		Carros fusca = new Carros();
 		fusca.modelo = "Fusca";
 		fusca.ano = 1938;
@@ -55,7 +57,7 @@ public class Objetos {
 		fusca.acelerar();
 		fusca.desligar();
 		
-		// Objeto 3
+		//Objeto 3
 		Carros uno = new Carros();
 		uno.modelo = "Uno";
 		uno.ano = 2008;
@@ -69,7 +71,7 @@ public class Objetos {
 		uno.acelerar();
 		uno.desligar();
 				
-				// Objeto 4
+		//Objeto 4
 		Carros hb20 = new Carros();
 		hb20.modelo = "HB20";
 		hb20.ano = 2013;

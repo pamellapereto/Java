@@ -36,13 +36,15 @@ public class Enxada extends Bloco {
 		conquista = true;
 	}
 	
-	// Polimorfismo
+	
+	// Polimorfismo (sobrescrita do método minerar)
 	
 	/**
 	 * Método usado para minerar a terra
 	 */
 	void minerar() {
-		System.out.println("Dano atribuído");
+		System.out.println("Dano causado!");
 	}
+	
 	
 }

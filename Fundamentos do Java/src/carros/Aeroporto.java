@@ -17,11 +17,12 @@ public class Aeroporto extends Carros {
 			System.out.println("******AEROPORTO******");
 		}
 
-		// Atributos
+		//Atributos
 		double envergadura;
 		boolean aviaoAterrizado;
 		
-		// Métodos
+		//Métodos
+		
 		/**
 		 * Método usado para aterrizar um avião
 		 */
@@ -30,6 +31,7 @@ public class Aeroporto extends Carros {
 			aviaoAterrizado = true;
 		}
 		
+		//POLIMORFISMO
 		/**
 		 * Método usado para desligar um avião
 		 */
