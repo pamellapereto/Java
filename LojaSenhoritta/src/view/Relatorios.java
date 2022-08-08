@@ -10,8 +10,6 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-
-
 public class Relatorios extends JDialog {
 
 	/**
@@ -23,7 +21,7 @@ public class Relatorios extends JDialog {
 	/**
 	 * Launch the application.
 	 */
-	
+
 	public static void main(String[] args) {
 		try {
 			Relatorios dialog = new Relatorios();
@@ -33,13 +31,12 @@ public class Relatorios extends JDialog {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 	/**
 	 * Create the dialog.
 	 */
 	public Relatorios() {
-		
+
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Ferramentas.class.getResource("/img/logo.png")));
 		setTitle("Relatórios");
@@ -49,29 +46,27 @@ public class Relatorios extends JDialog {
 		contentPanel.setLayout(new FlowLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
-		
+
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
-			
+
 			{
 				JButton okButton = new JButton("OK");
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
 			}
-			
-			
+
 			{
 				JButton cancelButton = new JButton("Cancel");
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 			}
-			
-		}
-		
 
-	} //Fim do construtor
+		}
+
+	} // Fim do construtor
 
 }

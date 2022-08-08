@@ -1,6 +1,5 @@
 package view;
 
-
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -65,69 +64,67 @@ public class Login extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblNewLabel = new JLabel("Login");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel.setBounds(29, 29, 37, 14);
 		contentPane.add(lblNewLabel);
-		
+
 		textField = new JTextField();
 		textField.setBounds(83, 26, 203, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("Senha");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel_1.setBounds(25, 67, 37, 14);
 		contentPane.add(lblNewLabel_1);
-		
+
 		passwordField = new JPasswordField();
 		passwordField.setBounds(83, 64, 203, 20);
 		contentPane.add(passwordField);
-		
+
 		JButton btnNewButton = new JButton("Acessar");
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnNewButton.setBounds(197, 117, 89, 23);
 		contentPane.add(btnNewButton);
-		
+
 		lblStatus = new JLabel("");
 		lblStatus.setIcon(new ImageIcon(Login.class.getResource("/img/databaseOff.png")));
 		lblStatus.setBounds(7, 106, 64, 64);
 		contentPane.add(lblStatus);
-		
-	} //Fim do construtor
-	
-	//Criação de um objeto para acessar a camada model
+
+	} // Fim do construtor
+
+	// Criação de um objeto para acessar a camada model
 	DAO dao = new DAO();
 	private JLabel lblStatus;
-	
+
 	/**
 	 * Método usado para verificar o status do servidor
 	 */
-	
+
 	private void status() {
-		
+
 		try {
-			//Abrir a conexão
+			// Abrir a conexão
 			Connection con = dao.conectar();
-			
+
 			if (con == null) {
-				//Escolher a imagem
-				lblStatus.setIcon(new ImageIcon (Login.class.getResource("/img/databaseOff.png")));
-				
+				// Escolher a imagem
+				lblStatus.setIcon(new ImageIcon(Login.class.getResource("/img/databaseOff.png")));
+
 			} else {
-				lblStatus.setIcon(new ImageIcon (Login.class.getResource("/img/databaseOn.png")));
+				lblStatus.setIcon(new ImageIcon(Login.class.getResource("/img/databaseOn.png")));
 			}
-			
-			//Não esquecer de fechar a conexão
+
+			// Não esquecer de fechar a conexão
 			con.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println(e);
-			
+
 		}
-		
+
 	}
-	
-	
-} //Fim do código
+
+} // Fim do código

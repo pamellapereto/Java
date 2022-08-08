@@ -40,6 +40,6 @@ public class Clientes extends JDialog {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
 
-	} //Fim do construtor
+	} // Fim do construtor
 
 }

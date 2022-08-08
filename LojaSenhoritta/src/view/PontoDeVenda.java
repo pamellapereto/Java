@@ -2,7 +2,6 @@ package view;
 
 import java.awt.BorderLayout;
 
-
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -21,19 +20,17 @@ public class PontoDeVenda extends JDialog {
 	 * Launch the application.
 	 * 
 	 */
-	
+
 	public static void main(String[] args) {
-		
-			
-				try {
-					PontoDeVenda dialog = new PontoDeVenda();
-					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-					dialog.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			
-		
+
+		try {
+			PontoDeVenda dialog = new PontoDeVenda();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	/**
@@ -50,6 +47,6 @@ public class PontoDeVenda extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 
-	} //Fim do construtor
+	} // Fim do construtor
 
 }
