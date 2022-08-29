@@ -28,8 +28,8 @@ public class Principal extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JLabel lblData;
-	
-	// Atribuir o modificador público para manipular esses objetos de outra classe
+
+	// Atribuir o modificador publico para manipular esses objetos de outra classe
 	public JButton btnUsuarios;
 	public JButton btnRelatorios;
 	public JLabel txtLoginPrincipal;
@@ -79,7 +79,7 @@ public class Principal extends JFrame {
 		btnUsuarios.setEnabled(false);
 
 		btnUsuarios.addActionListener(new ActionListener() {
-			// evento clicar no botão
+			// evento clicar no botao
 			public void actionPerformed(ActionEvent e) {
 				// Link para o jDialog
 				Usuarios usuarios = new Usuarios();
@@ -155,7 +155,7 @@ public class Principal extends JFrame {
 			}
 		});
 
-		btnRelatorios.setToolTipText("Relatórios");
+		btnRelatorios.setToolTipText("RelatÃ³rios");
 		btnRelatorios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRelatorios.setIcon(new ImageIcon(Principal.class.getResource("/img/report.png")));
 		btnRelatorios.setBounds(172, 177, 128, 128);
@@ -200,7 +200,7 @@ public class Principal extends JFrame {
 		lblData.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblData.setBounds(325, 11, 289, 31);
 		panelUsuario.add(lblData);
-		
+
 		txtLoginPrincipal = new JLabel("");
 		txtLoginPrincipal.setForeground(Color.WHITE);
 		txtLoginPrincipal.setFont(new Font("Tahoma", Font.BOLD, 14));

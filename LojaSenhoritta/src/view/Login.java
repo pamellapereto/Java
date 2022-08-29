@@ -85,7 +85,7 @@ public class Login extends JFrame {
 
 		JLabel lblNewLabel_1 = new JLabel("Senha");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblNewLabel_1.setBounds(25, 67, 37, 14);
+		lblNewLabel_1.setBounds(30, 66, 55, 14);
 		contentPane.add(lblNewLabel_1);
 
 		txtSenha = new JPasswordField();
@@ -107,12 +107,12 @@ public class Login extends JFrame {
 		lblStatus.setBounds(7, 106, 64, 64);
 		contentPane.add(lblStatus);
 
-		// Validação com o uso da biblioteca Atxy2k
+		// Validacao com o uso da biblioteca Atxy2k
 
 		// txtLogin
 		RestrictedTextField validarLogin = new RestrictedTextField(txtLogin);
 
-		// Restringir a caracteres alfanuméricos no campo login
+		// Restringir a caracteres alfanumericos no campo login
 		validarLogin.setOnlyAlphaNumeric(true);
 		// Limitar a somente 15 caracteres no campo login
 		validarLogin.setLimit(15);
@@ -123,23 +123,23 @@ public class Login extends JFrame {
 		// Limitar a somente 10 caracteres no campo senha
 		validarSenha.setLimit(10);
 
-		// Usar o Enter ao invés de "clicar" no botão para logar
+		// Usar o Enter ao inves de "clicar" no botao para logar
 		getRootPane().setDefaultButton(btnLogar);
 
 	} // Fim do construtor
 
-	// Criação de um objeto para acessar a camada model
+	// Criacao de um objeto para acessar a camada model
 	DAO dao = new DAO();
 	private JLabel lblStatus;
 
 	/**
-	 * Método usado para verificar o status do servidor
+	 * Metodo usado para verificar o status do servidor
 	 */
 
 	private void status() {
 
 		try {
-			// Abrir a conexão
+			// Abrir a conexao
 			Connection con = dao.conectar();
 
 			if (con == null) {
@@ -150,7 +150,7 @@ public class Login extends JFrame {
 				lblStatus.setIcon(new ImageIcon(Login.class.getResource("/img/databaseOn.png")));
 			}
 
-			// Não esquecer de fechar a conexão
+			// Nao esquecer de fechar a conexao
 			con.close();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -160,40 +160,40 @@ public class Login extends JFrame {
 	}
 
 	/**
-	 * Método responsável para autenticar o usuário
+	 * Metodo responsavel para autenticar o usuario
 	 */
 
 	private void logar() {
 
-		// Validação da senha (captura segura)
+		// Validacao da senha (captura segura)
 		String capturaSenha = new String(txtSenha.getPassword());
 
-		// Validação do login do usuário
+		// Validacao do login do usuario
 		if (txtLogin.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Digite o login do usuário");
+			JOptionPane.showMessageDialog(null, "Digite o login do usuario");
 			txtLogin.requestFocus();
 		}
 
-		// Validação da senha do usuário
+		// Validacao da senha do usuario
 		else if (txtSenha.getPassword().length == 0) {
-			JOptionPane.showMessageDialog(null, "Digite a senha do usuário");
+			JOptionPane.showMessageDialog(null, "Digite a senha do usuario");
 			txtSenha.requestFocus();
 		}
 
-		// Lógica principal
-		// Query (instrução SQL)
+		// Logica principal
+		// Query (instrucao SQL)
 		else {
 			String read = "select * from usuarios where login=? and senha=md5(?);";
 
 			try {
-				// Estabelecer a conexão
+				// Estabelecer a conexao
 				Connection con = dao.conectar();
 
-				// Preparar a execução da query
+				// Preparar a execucao da query
 				PreparedStatement pst = con.prepareStatement(read);
 
 				// Setar o argumento (login e senha)
-				// Substituir o ? ? (argumentos) pelo conteúdo da caixa de texto
+				// Substituir o ? ? (argumentos) pelo conteudo da caixa de texto
 				pst.setString(1, txtLogin.getText());
 
 				pst.setString(2, capturaSenha);
@@ -202,12 +202,12 @@ public class Login extends JFrame {
 				// principal
 				ResultSet rs = pst.executeQuery();
 
-				// Validação (autenticação do usuário)
-				// rs.next() -> existência de login e senha correspondente
+				// Validacao (autenticacao do usuario)
+				// rs.next() -> existencia de login e senha correspondente
 
 				if (rs.next()) {
 
-					// Verificar o perfil do usuário
+					// Verificar o perfil do usuario
 
 					String perfil = rs.getString(5);
 					// System.out.println(perfil);
@@ -216,8 +216,8 @@ public class Login extends JFrame {
 					// Abrir a tela principal
 					principal.setVisible(true);
 
-					// Setar o nome do usuário na tela principal
-					principal.txtLoginPrincipal.setText("Usuário: " + rs.getString(2));
+					// Setar o nome do usuario na tela principal
+					principal.txtLoginPrincipal.setText("UsuÃ¡rio: " + rs.getString(2));
 
 					if (perfil.equals("admin")) {
 
@@ -237,16 +237,16 @@ public class Login extends JFrame {
 
 				else {
 
-					JOptionPane.showMessageDialog(null, "Login e/ou senha inválido(s)!");
+					JOptionPane.showMessageDialog(null, "Login e/ou senha invalido(s)!");
 
 				}
 
-				// NUNCA esquecer de encerrar a conexão
+				// NUNCA esquecer de encerrar a conexao
 				con.close();
 
 			}
 
-			// Tratar exceções sempre que lidar com o banco
+			// Tratar excecoes sempre que lidar com o banco
 			catch (Exception e) {
 				System.out.println(e);
 			}
@@ -254,4 +254,4 @@ public class Login extends JFrame {
 		}
 	}
 
-} // Fim do código
+} // Fim do codigo

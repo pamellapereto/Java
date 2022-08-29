@@ -49,7 +49,7 @@ public class Sobre extends JDialog {
 		lblNewLabel.setBounds(170, 27, 110, 30);
 		getContentPane().add(lblNewLabel);
 
-		JLabel lblSobALicena = new JLabel("Sob a licen\u00E7a MIT");
+		JLabel lblSobALicena = new JLabel("Sob a licença MIT");
 		lblSobALicena.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblSobALicena.setBounds(184, 185, 96, 30);
 		getContentPane().add(lblSobALicena);
