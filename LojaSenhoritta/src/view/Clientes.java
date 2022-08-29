@@ -8,6 +8,11 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+
+import org.dom4j.Document;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
+
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.ImageIcon;
@@ -26,11 +31,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.Iterator;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.net.URL;
 import java.awt.Color;
 import java.awt.Font;
 
@@ -48,6 +55,7 @@ public class Clientes extends JDialog {
 	private JTextField txtCliFone;
 	private JTextField txtCliEmail;
 	private JTextField txtCliCEP;
+	private JLabel lblStatusCEP;
 	private JTextField txtCliEndereco;
 	private JTextField txtCliNumero;
 	private JTextField txtCliComplemento;
@@ -147,7 +155,7 @@ public class Clientes extends JDialog {
 		getContentPane().add(lblNewLabel_9);
 
 		cboCliMarketing = new JComboBox();
-		cboCliMarketing.setModel(new DefaultComboBoxModel(new String[] { "", "Sim", "NÃ£o" }));
+		cboCliMarketing.setModel(new DefaultComboBoxModel(new String[] { "", "Sim", "Não" }));
 		cboCliMarketing.setBounds(526, 247, 81, 22);
 		getContentPane().add(cboCliMarketing);
 
@@ -167,9 +175,25 @@ public class Clientes extends JDialog {
 		txtCliCEP.setBounds(59, 305, 81, 20);
 		getContentPane().add(txtCliCEP);
 
+		lblStatusCEP = new JLabel("");
+		lblStatusCEP.setBounds(146, 308, 46, 14);
+		getContentPane().add(lblStatusCEP);
+
 		btnBuscarCEP = new JButton("Buscar CEP");
+		btnBuscarCEP.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				if (txtCliCEP.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Informe o CEP para realizar a busca do endereço");
+					txtCliCEP.requestFocus();
+				} else {
+					buscarCEP();
+				}
+			}
+		});
+
 		btnBuscarCEP.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnBuscarCEP.setBounds(157, 302, 107, 23);
+		btnBuscarCEP.setBounds(210, 302, 107, 23);
 		getContentPane().add(btnBuscarCEP);
 
 		JLabel lblNewLabel_12 = new JLabel("EndereÃ§o");
@@ -177,7 +201,6 @@ public class Clientes extends JDialog {
 		getContentPane().add(lblNewLabel_12);
 
 		txtCliEndereco = new JTextField();
-		txtCliEndereco.setEditable(false);
 		txtCliEndereco.setBounds(94, 348, 218, 20);
 		getContentPane().add(txtCliEndereco);
 
@@ -186,7 +209,6 @@ public class Clientes extends JDialog {
 		getContentPane().add(lblNewLabel_13);
 
 		txtCliNumero = new JTextField();
-		txtCliNumero.setEditable(false);
 		txtCliNumero.setBounds(394, 348, 72, 20);
 		getContentPane().add(txtCliNumero);
 
@@ -195,7 +217,6 @@ public class Clientes extends JDialog {
 		getContentPane().add(lblNewLabel_14);
 
 		txtCliComplemento = new JTextField();
-		txtCliComplemento.setEditable(false);
 		txtCliComplemento.setBounds(585, 348, 99, 20);
 		getContentPane().add(txtCliComplemento);
 
@@ -204,7 +225,6 @@ public class Clientes extends JDialog {
 		getContentPane().add(lblNewLabel_15);
 
 		txtCliBairro = new JTextField();
-		txtCliBairro.setEditable(false);
 		txtCliBairro.setBounds(71, 392, 200, 20);
 		getContentPane().add(txtCliBairro);
 
@@ -213,7 +233,6 @@ public class Clientes extends JDialog {
 		getContentPane().add(lblNewLabel_16);
 
 		txtCliCidade = new JTextField();
-		txtCliCidade.setEditable(false);
 		txtCliCidade.setBounds(349, 392, 200, 20);
 		getContentPane().add(txtCliCidade);
 
@@ -357,8 +376,8 @@ public class Clientes extends JDialog {
 
 		// Restringir a somente numeros no campo CEP
 		validarCEP.setOnlyNums(true);
-		// Limitar a somente 9 numeros no campo CEP
-		validarCEP.setLimit(9);
+		// Limitar a somente 8 numeros no campo CEP
+		validarCEP.setLimit(8);
 
 		// txtCliEndereco
 		RestrictedTextField validarEndereco = new RestrictedTextField(txtCliEndereco);
@@ -722,7 +741,7 @@ public class Clientes extends JDialog {
 				btnBuscar.setEnabled(false);
 
 				// Exibir mensagem ao deletar cliente
-				JOptionPane.showMessageDialog(null, "Cliente excluÃ­do com sucesso!");
+				JOptionPane.showMessageDialog(null, "Cliente excluído com sucesso!");
 
 				// NUNCA esquecer de encerrar a conexao
 				con.close();
@@ -734,6 +753,71 @@ public class Clientes extends JDialog {
 			}
 
 		}
+	}
+
+	private void buscarCEP() {
+
+		String logradouro = "";
+		String tipoLogradouro = "";
+		String resultado = null;
+		String CEP = txtCliCEP.getText();
+
+		try {
+
+			URL url = new URL("http://cep.republicavirtual.com.br/web_cep.php?cep=" + CEP + "&formato=xml");
+
+			SAXReader xml = new SAXReader();
+
+			Document documento = xml.read(url);
+
+			Element root = documento.getRootElement();
+
+			for (Iterator<Element> it = root.elementIterator(); it.hasNext();) {
+
+				Element element = it.next();
+
+				if (element.getQualifiedName().equals("cidade")) {
+					txtCliCidade.setText(element.getText());
+				}
+
+				if (element.getQualifiedName().equals("bairro")) {
+					txtCliBairro.setText(element.getText());
+				}
+
+				if (element.getQualifiedName().equals("uf")) {
+					cboCliUF.setSelectedItem(element.getText());
+				}
+
+				if (element.getQualifiedName().equals("tipo_logradouro")) {
+					tipoLogradouro = element.getText();
+				}
+
+				if (element.getQualifiedName().equals("logradouro")) {
+					logradouro = element.getText();
+				}
+
+				if (element.getQualifiedName().equals("resultado")) {
+					resultado = element.getText();
+
+					if (resultado.equals("1")) {
+						lblStatusCEP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/check.png")));
+					}
+
+					else {
+						JOptionPane.showMessageDialog(null, "CEP não encontrado");
+					}
+				}
+			}
+
+			// Setar o campo endereco
+			txtCliEndereco.setText(tipoLogradouro + " " + logradouro);
+
+		}
+
+		catch (Exception e) {
+			System.out.println(e);
+		}
+
 	}
 
 	private void limparCampos() {

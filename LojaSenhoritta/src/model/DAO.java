@@ -13,9 +13,9 @@ import java.sql.DriverManager;
 public class DAO {
 	// Parametros de conexao
 	private String driver = "com.mysql.cj.jdbc.Driver";
-	private String url = "jdbc:mysql://127.0.0.1:3306/dbSenhoritta";
+	private String url = "jdbc:mysql://10.26.49.149:3306/dbSenhoritta";
 	private String user = "root";
-	private String password = "";
+	private String password = "123@senac";
 
 	/**
 	 * Metodo responsavel pela conexao

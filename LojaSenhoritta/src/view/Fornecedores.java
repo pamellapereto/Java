@@ -8,6 +8,11 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+
+import org.dom4j.Document;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
+
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.ImageIcon;
@@ -26,11 +31,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.Iterator;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.net.URL;
 import java.awt.Color;
 import java.awt.Font;
 
@@ -53,6 +60,7 @@ public class Fornecedores extends JDialog {
 	private JTextField txtForContato;
 	private JTextField txtForEmail;
 	private JTextField txtForCEP;
+	private JLabel lblStatusCEP;
 	private JTextField txtForEndereco;
 	private JTextField txtForNumero;
 	private JTextField txtForComplemento;
@@ -207,9 +215,25 @@ public class Fornecedores extends JDialog {
 		txtForCEP.setBounds(59, 385, 81, 20);
 		getContentPane().add(txtForCEP);
 
+		lblStatusCEP = new JLabel("");
+		lblStatusCEP.setBounds(150, 388, 46, 14);
+		getContentPane().add(lblStatusCEP);
+
 		btnBuscarCEP = new JButton("Buscar CEP");
+		btnBuscarCEP.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				if (txtForCEP.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Informe o CEP para realizar a busca do endereço");
+					txtForCEP.requestFocus();
+				} else {
+					buscarCEP();
+				}
+			}
+		});
+
 		btnBuscarCEP.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnBuscarCEP.setBounds(157, 382, 107, 23);
+		btnBuscarCEP.setBounds(210, 382, 107, 23);
 		getContentPane().add(btnBuscarCEP);
 
 		JLabel lblNewLabel_12 = new JLabel("EndereÃ§o*");
@@ -217,16 +241,14 @@ public class Fornecedores extends JDialog {
 		getContentPane().add(lblNewLabel_12);
 
 		txtForEndereco = new JTextField();
-		txtForEndereco.setEditable(false);
 		txtForEndereco.setBounds(94, 428, 218, 20);
 		getContentPane().add(txtForEndereco);
 
-		JLabel lblNewLabel_13 = new JLabel("NÃºmero*");
+		JLabel lblNewLabel_13 = new JLabel("Número*");
 		lblNewLabel_13.setBounds(338, 431, 46, 14);
 		getContentPane().add(lblNewLabel_13);
 
 		txtForNumero = new JTextField();
-		txtForNumero.setEditable(false);
 		txtForNumero.setBounds(394, 428, 72, 20);
 		getContentPane().add(txtForNumero);
 
@@ -235,7 +257,6 @@ public class Fornecedores extends JDialog {
 		getContentPane().add(lblNewLabel_14);
 
 		txtForComplemento = new JTextField();
-		txtForComplemento.setEditable(false);
 		txtForComplemento.setBounds(585, 428, 99, 20);
 		getContentPane().add(txtForComplemento);
 
@@ -244,7 +265,6 @@ public class Fornecedores extends JDialog {
 		getContentPane().add(lblNewLabel_15);
 
 		txtForBairro = new JTextField();
-		txtForBairro.setEditable(false);
 		txtForBairro.setBounds(71, 472, 200, 20);
 		getContentPane().add(txtForBairro);
 
@@ -253,7 +273,6 @@ public class Fornecedores extends JDialog {
 		getContentPane().add(lblNewLabel_16);
 
 		txtForCidade = new JTextField();
-		txtForCidade.setEditable(false);
 		txtForCidade.setBounds(349, 472, 200, 20);
 		getContentPane().add(txtForCidade);
 
@@ -512,8 +531,8 @@ public class Fornecedores extends JDialog {
 
 		// Restringir a somente numeros no campo CEP
 		validarCEP.setOnlyNums(true);
-		// Limitar a somente 9 numeros no campo CEP
-		validarCEP.setLimit(9);
+		// Limitar a somente 8 numeros no campo CEP
+		validarCEP.setLimit(8);
 
 		// txtForEndereco
 		RestrictedTextField validarEndereco = new RestrictedTextField(txtForEndereco);
@@ -1782,6 +1801,71 @@ public class Fornecedores extends JDialog {
 			}
 
 		}
+	}
+
+	private void buscarCEP() {
+
+		String logradouro = "";
+		String tipoLogradouro = "";
+		String resultado = null;
+		String CEP = txtForCEP.getText();
+
+		try {
+
+			URL url = new URL("http://cep.republicavirtual.com.br/web_cep.php?cep=" + CEP + "&formato=xml");
+
+			SAXReader xml = new SAXReader();
+
+			Document documento = xml.read(url);
+
+			Element root = documento.getRootElement();
+
+			for (Iterator<Element> it = root.elementIterator(); it.hasNext();) {
+
+				Element element = it.next();
+
+				if (element.getQualifiedName().equals("cidade")) {
+					txtForCidade.setText(element.getText());
+				}
+
+				if (element.getQualifiedName().equals("bairro")) {
+					txtForBairro.setText(element.getText());
+				}
+
+				if (element.getQualifiedName().equals("uf")) {
+					cboForUF.setSelectedItem(element.getText());
+				}
+
+				if (element.getQualifiedName().equals("tipo_logradouro")) {
+					tipoLogradouro = element.getText();
+				}
+
+				if (element.getQualifiedName().equals("logradouro")) {
+					logradouro = element.getText();
+				}
+
+				if (element.getQualifiedName().equals("resultado")) {
+					resultado = element.getText();
+
+					if (resultado.equals("1")) {
+						lblStatusCEP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/check.png")));
+					}
+
+					else {
+						JOptionPane.showMessageDialog(null, "CEP não encontrado");
+					}
+				}
+			}
+
+			// Setar o campo endereco
+			txtForEndereco.setText(tipoLogradouro + " " + logradouro);
+
+		}
+
+		catch (Exception e) {
+			System.out.println(e);
+		}
+
 	}
 
 	private void limparCampos() {
