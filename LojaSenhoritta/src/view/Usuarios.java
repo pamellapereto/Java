@@ -21,6 +21,10 @@ import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -61,22 +65,36 @@ public class Usuarios extends JDialog {
 	 */
 
 	public Usuarios() {
-		setModal(true);
-		setTitle("Usu\u00E1rios");
 		setResizable(false);
+		setModal(true);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Usuarios.class.getResource("/img/logo.png")));
+		setTitle("Usuários");
 		setBounds(100, 100, 486, 341);
 		getContentPane().setLayout(null);
 
+		JLabel lblNewLabel_2 = new JLabel("Login");
+		lblNewLabel_2.setBounds(39, 35, 46, 14);
+		getContentPane().add(lblNewLabel_2);
+
+		txtUsuLogin = new JTextField();
+		
+		addWindowListener(new WindowAdapter() {
+			public void windowOpened(WindowEvent e) {
+				txtUsuLogin.requestFocus();
+			}
+		});
+
+		txtUsuLogin.setBounds(82, 32, 125, 20);
+		getContentPane().add(txtUsuLogin);
+
 		JLabel lblNewLabel = new JLabel("ID");
-		lblNewLabel.setBounds(60, 36, 32, 14);
+		lblNewLabel.setBounds(305, 35, 32, 14);
 		getContentPane().add(lblNewLabel);
 
 		txtUsuId = new JTextField();
 		txtUsuId.setEditable(false);
-		txtUsuId.setBounds(95, 33, 46, 20);
+		txtUsuId.setBounds(340, 32, 46, 20);
 		getContentPane().add(txtUsuId);
-		txtUsuId.setColumns(10);
 
 		JLabel lblNewLabel_1 = new JLabel("Usu\u00E1rio");
 		lblNewLabel_1.setBounds(39, 91, 46, 14);
@@ -85,16 +103,6 @@ public class Usuarios extends JDialog {
 		txtUsuNome = new JTextField();
 		txtUsuNome.setBounds(95, 88, 310, 20);
 		getContentPane().add(txtUsuNome);
-		txtUsuNome.setColumns(10);
-
-		JLabel lblNewLabel_2 = new JLabel("Login");
-		lblNewLabel_2.setBounds(193, 36, 46, 14);
-		getContentPane().add(lblNewLabel_2);
-
-		txtUsuLogin = new JTextField();
-		txtUsuLogin.setBounds(236, 33, 121, 20);
-		getContentPane().add(txtUsuLogin);
-		txtUsuLogin.setColumns(10);
 
 		JLabel lblNewLabel_3 = new JLabel("Senha");
 		lblNewLabel_3.setBounds(39, 133, 46, 14);
@@ -125,7 +133,7 @@ public class Usuarios extends JDialog {
 		btnPesquisar.setContentAreaFilled(false);
 		btnPesquisar.setBorderPainted(false);
 		btnPesquisar.setIcon(new ImageIcon(Usuarios.class.getResource("/img/pesquisar.png")));
-		btnPesquisar.setBounds(370, 26, 32, 32);
+		btnPesquisar.setBounds(216, 25, 32, 32);
 		getContentPane().add(btnPesquisar);
 
 		btnAdicionar = new JButton("");
@@ -221,7 +229,7 @@ public class Usuarios extends JDialog {
 				txtUsuSenha.setEditable(true);
 			}
 		});
-		
+
 		chkSenha.setVisible(false);
 		chkSenha.setBounds(320, 129, 113, 23);
 		getContentPane().add(chkSenha);
@@ -280,27 +288,20 @@ public class Usuarios extends JDialog {
 					btnAlterar.setEnabled(true);
 					btnExcluir.setEnabled(true);
 					chkSenha.setVisible(true);
+					btnAdicionar.setEnabled(false);
 
-					
 				}
-				
-				
 
 				else {
 					// Validacao
 
-					JOptionPane.showMessageDialog(null, "UsuÃ¡rio inexistente!");
-					
-					txtUsuNome.setEditable(true);
-					cboUsuPerfil.setEnabled(true);
-					txtUsuSenha.setEditable(true);
+					JOptionPane.showMessageDialog(null, "Usuário inexistente!");
+
 					txtUsuNome.requestFocus();
 					btnAdicionar.setEnabled(true);
 					limparCampos();
 
 				}
-				
-				
 
 				// NUNCA esquecer de encerrar a conexao
 				con.close();
@@ -370,9 +371,11 @@ public class Usuarios extends JDialog {
 				pst.executeUpdate();
 
 				// Exibir mensagem ao cadastrar usuario com sucesso no banco
-				JOptionPane.showMessageDialog(null, "UsuÃ¡rio cadastrado com sucesso!");
+				JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!");
 
 				limparCampos();
+				txtUsuLogin.setText(null);
+				txtUsuLogin.requestFocus();
 				// NUNCA esquecer de encerrar a conexao
 				con.close();
 
@@ -446,7 +449,7 @@ public class Usuarios extends JDialog {
 				limparCampos();
 				txtUsuLogin.setText(null);
 				txtUsuLogin.requestFocus();
-				
+
 				// NUNCA esquecer de encerrar a conexao
 				con.close();
 
@@ -525,7 +528,7 @@ public class Usuarios extends JDialog {
 				limparCampos();
 				txtUsuLogin.setText(null);
 				txtUsuLogin.requestFocus();
-				
+
 				// NUNCA esquecer de encerrar a conexao
 				con.close();
 
@@ -552,7 +555,7 @@ public class Usuarios extends JDialog {
 	private void excluirUsuario() {
 
 		// Validacao
-		int confirma = JOptionPane.showConfirmDialog(null, "Confirma a exclusÃ£o do usuÃ¡rio?", "AtenÃ§Ã£o!",
+		int confirma = JOptionPane.showConfirmDialog(null, "Confirma a exclusão do usuário?", "Atenção!",
 				JOptionPane.YES_NO_OPTION);
 
 		// Logica principal
@@ -577,7 +580,7 @@ public class Usuarios extends JDialog {
 				txtUsuLogin.requestFocus();
 
 				// Exibir mensagem ao deletar usuario
-				JOptionPane.showMessageDialog(null, "UsuÃ¡rio excluÃ­do com sucesso!");
+				JOptionPane.showMessageDialog(null, "Usuário excluído com sucesso!");
 
 				// NUNCA esquecer de encerrar a conexao
 				con.close();

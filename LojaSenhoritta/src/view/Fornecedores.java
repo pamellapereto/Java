@@ -27,6 +27,8 @@ import java.awt.Cursor;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -68,13 +70,13 @@ public class Fornecedores extends JDialog {
 	private JTextField txtForCidade;
 	private JTable tblFornecedores;
 	private JComboBox cboForUF;
-	private JCheckBox chkIE;
+	//private JCheckBox chkIE;
 	private JButton btnAdicionar;
 	private JButton btnAlterar;
 	private JButton btnExcluir;
 	private JButton btnBuscar;
 	private JButton btnBuscarCEP;
-	private JCheckBox chkIM;
+	//private JCheckBox chkIM;
 	private JTextField txtForObs;
 
 	/**
@@ -109,9 +111,26 @@ public class Fornecedores extends JDialog {
 		lblNewLabel.setBounds(24, 16, 68, 14);
 		getContentPane().add(lblNewLabel);
 
+		
 		txtBuscarFor = new JTextField();
 		txtBuscarFor.setForeground(Color.DARK_GRAY);
-		txtBuscarFor.setToolTipText("");
+		txtBuscarFor.setText("Digite para pesquisar...        ⌕");
+		txtBuscarFor.addFocusListener(new FocusListener() {
+			@Override
+			public void focusGained(FocusEvent event) {
+				if (txtBuscarFor.getText().equals("Digite para pesquisar...        ⌕")) {
+					txtBuscarFor.setText("");
+				}
+			}
+
+			@Override
+			public void focusLost(FocusEvent event) {
+				if (txtBuscarFor.getText().equals("")) {
+					txtBuscarFor.setText("Digite para pesquisar...        ⌕");
+				}
+			}
+		});
+
 		txtBuscarFor.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
@@ -120,9 +139,9 @@ public class Fornecedores extends JDialog {
 
 			}
 		});
-		txtBuscarFor.setBounds(94, 13, 148, 20);
+		txtBuscarFor.setBounds(94, 13, 168, 20);
 		getContentPane().add(txtBuscarFor);
-		txtBuscarFor.setColumns(10);
+		
 
 		JLabel lblNewLabel_2 = new JLabel("ID");
 		lblNewLabel_2.setBounds(24, 139, 46, 14);
@@ -146,7 +165,7 @@ public class Fornecedores extends JDialog {
 		getContentPane().add(lblNewLabel_4);
 
 		txtForIE = new JTextField();
-		txtForIE.setEditable(false);
+		//txtForIE.setEditable(false);
 		txtForIE.setBounds(228, 194, 171, 20);
 		getContentPane().add(txtForIE);
 
@@ -155,7 +174,7 @@ public class Fornecedores extends JDialog {
 		getContentPane().add(lblNewLabel_4_1);
 
 		txtForIM = new JTextField();
-		txtForIM.setEditable(false);
+		//txtForIM.setEditable(false);
 		txtForIM.setBounds(461, 194, 171, 20);
 		getContentPane().add(txtForIM);
 
@@ -224,7 +243,7 @@ public class Fornecedores extends JDialog {
 
 			public void actionPerformed(ActionEvent e) {
 				if (txtForCEP.getText().equals("")) {
-					JOptionPane.showMessageDialog(null, "Informe o CEP para realizar a busca do endere�o");
+					JOptionPane.showMessageDialog(null, "Informe o CEP para realizar a busca do endereço");
 					txtForCEP.requestFocus();
 				} else {
 					buscarCEP();
@@ -244,8 +263,8 @@ public class Fornecedores extends JDialog {
 		txtForEndereco.setBounds(94, 428, 218, 20);
 		getContentPane().add(txtForEndereco);
 
-		JLabel lblNewLabel_13 = new JLabel("N�mero*");
-		lblNewLabel_13.setBounds(338, 431, 46, 14);
+		JLabel lblNewLabel_13 = new JLabel("Número*");
+		lblNewLabel_13.setBounds(337, 431, 62, 14);
 		getContentPane().add(lblNewLabel_13);
 
 		txtForNumero = new JTextField();
@@ -295,43 +314,43 @@ public class Fornecedores extends JDialog {
 		txtForObs.setBounds(338, 324, 313, 20);
 		getContentPane().add(txtForObs);
 
-		chkIE = new JCheckBox("Editar Inscrição Estadual (IE)");
-		chkIE.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		//chkIE = new JCheckBox("Editar Inscrição Estadual (IE)");
+		//chkIE.addActionListener(new ActionListener() {
+			//public void actionPerformed(ActionEvent e) {
 
-				if (chkIE.isSelected()) {
-					txtForIE.requestFocus();
-					txtForIE.setEditable(true);
-				}
+				//if (chkIE.isSelected()) {
+					//txtForIE.requestFocus();
+					//txtForIE.setEditable(true);
+				//}
 
-				else {
-					txtForIE.setText(null);
-					txtForIE.setEditable(false);
-				}
-			}
-		});
+				//else {
+					//txtForIE.setText(null);
+					//txtForIE.setEditable(false);
+				//}
+			//}
+		//});
 
-		chkIE.setBounds(223, 164, 211, 23);
-		getContentPane().add(chkIE);
+		//chkIE.setBounds(223, 164, 211, 23);
+		//getContentPane().add(chkIE);
 
-		chkIM = new JCheckBox("Editar Inscrição Municipal (IM)");
-		chkIM.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (chkIM.isSelected()) {
-					txtForIM.requestFocus();
-					txtForIM.setEditable(true);
-				}
+		//chkIM = new JCheckBox("Editar Inscrição Municipal (IM)");
+		//chkIM.addActionListener(new ActionListener() {
+			//public void actionPerformed(ActionEvent e) {
+				//if (chkIM.isSelected()) {
+					//txtForIM.requestFocus();
+					//txtForIM.setEditable(true);
+				//}
 
-				else {
-					txtForIM.setText(null);
-					txtForIM.setEditable(false);
+				//else {
+					//txtForIM.setText(null);
+					//txtForIM.setEditable(false);
 
-				}
-			}
-		});
+				//}
+			//}
+		//});
 
-		chkIM.setBounds(456, 164, 218, 23);
-		getContentPane().add(chkIM);
+		//chkIM.setBounds(456, 164, 218, 23);
+		//getContentPane().add(chkIM);
 
 		btnAdicionar = new JButton("");
 		btnAdicionar.setEnabled(true);
@@ -339,15 +358,15 @@ public class Fornecedores extends JDialog {
 
 			public void actionPerformed(ActionEvent e) {
 
-				if (chkIE.isSelected()) {
+				if (!txtForIE.getText().isEmpty() && txtForIM.getText().equals("")) {
 					adicionarFornecedorComIE();
 				}
 
-				else if (chkIM.isSelected()) {
+				else if (txtForIE.getText().equals("") && !txtForIM.getText().isEmpty()) {
 					adicionarFornecedorComIM();
 				}
 
-				else if (chkIE.isSelected() && chkIM.isSelected()) {
+				else if (!txtForIE.getText().isEmpty() && !txtForIM.getText().isEmpty()) {
 					adicionarFornecedorComIEIM();
 				}
 
@@ -373,15 +392,15 @@ public class Fornecedores extends JDialog {
 
 			public void actionPerformed(ActionEvent e) {
 
-				if (chkIE.isSelected()) {
+				if (!txtForIE.getText().isEmpty() && txtForIM.getText().equals("")) {
 					alterarFornecedorComIE();
 				}
 
-				else if (chkIM.isSelected()) {
+				else if (txtForIE.getText().equals("") && !txtForIM.getText().isEmpty()) {
 					alterarFornecedorComIM();
 				}
 
-				else if (chkIE.isSelected() && chkIM.isSelected()) {
+				else if (!txtForIE.getText().isEmpty() && !txtForIM.getText().isEmpty()) {
 					alterarFornecedorComIEIM();
 				}
 
@@ -586,7 +605,7 @@ public class Fornecedores extends JDialog {
 	DAO dao = new DAO();
 
 	/**
-	 * Metodo responsavel pela pesquisa avançada do fornecedor usando o nome
+	 * Metodo responsavel pela pesquisa avancada do fornecedor usando o nome
 	 * fantasia e a biblioteca rs2xml
 	 */
 
@@ -693,7 +712,6 @@ public class Fornecedores extends JDialog {
 				txtForCidade.setText(rs.getString(16));
 				cboForUF.setSelectedItem(rs.getString(17));
 				txtForObs.setText(rs.getString(18));
-				txtBuscarFor.requestFocus();
 				btnAlterar.setEnabled(true);
 				btnExcluir.setEnabled(true);
 				btnBuscarCEP.setEnabled(true);
@@ -722,7 +740,7 @@ public class Fornecedores extends JDialog {
 		// Validacao do IE fornecedor
 		if (txtForIE.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null,
-					"Preencha corretamente o IE do fornecedor ou, caso não o tenha, desabilite-o.");
+					"Preencha a Inscrição Estadual (IE) do fornecedor.");
 			txtForIE.requestFocus();
 		}
 
@@ -816,7 +834,7 @@ public class Fornecedores extends JDialog {
 				JOptionPane.showMessageDialog(null, "Fornecedor cadastrado com sucesso!");
 
 				limparCampos();
-				((DefaultTableModel) tblFornecedores.getModel()).setRowCount(0);
+				lblStatusCEP.setVisible(false);
 				txtBuscarFor.setText(null);
 				// NUNCA esquecer de encerrar a conexao
 				con.close();
@@ -848,7 +866,7 @@ public class Fornecedores extends JDialog {
 		// Validacao do IM fornecedor
 		if (txtForIM.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null,
-					"Preencha corretamente o IM do fornecedor ou, caso não o tenha, desabilite-o.");
+					"Preencha a Inscrição Municipal (IM) do fornecedor.");
 			txtForIM.requestFocus();
 		}
 
@@ -942,7 +960,7 @@ public class Fornecedores extends JDialog {
 				JOptionPane.showMessageDialog(null, "Fornecedor cadastrado com sucesso!");
 
 				limparCampos();
-				((DefaultTableModel) tblFornecedores.getModel()).setRowCount(0);
+				lblStatusCEP.setVisible(false);
 				txtBuscarFor.setText(null);
 				// NUNCA esquecer de encerrar a conexao
 				con.close();
@@ -974,14 +992,14 @@ public class Fornecedores extends JDialog {
 		// Validacao do IE fornecedor
 		if (txtForIE.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null,
-					"Preencha corretamente o IE do fornecedor ou, caso não o tenha, desabilite-o.");
+					"Preencha a Inscrição Estadual (IE) do fornecedor.");
 			txtForIE.requestFocus();
 		}
 
 		// Validacao do IM fornecedor
 		if (txtForIM.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null,
-					"Preencha corretamente o IM do fornecedor ou, caso não o tenha, desabilite-o.");
+					"Preencha a Inscrição Municipal (IM) do fornecedor.");
 			txtForIM.requestFocus();
 		}
 
@@ -1076,7 +1094,7 @@ public class Fornecedores extends JDialog {
 				JOptionPane.showMessageDialog(null, "Fornecedor cadastrado com sucesso!");
 
 				limparCampos();
-				((DefaultTableModel) tblFornecedores.getModel()).setRowCount(0);
+				lblStatusCEP.setVisible(false);
 				txtBuscarFor.setText(null);
 				// NUNCA esquecer de encerrar a conexao
 				con.close();
@@ -1176,6 +1194,7 @@ public class Fornecedores extends JDialog {
 				pst.setString(3, txtForFantasia.getText());
 				pst.setString(4, txtForSite.getText());
 				pst.setString(5, txtForFone.getText());
+				txtForContato.setText(null);
 				pst.setString(6, txtForContato.getText());
 				pst.setString(7, txtForEmail.getText());
 				pst.setString(8, txtForCEP.getText());
@@ -1194,7 +1213,7 @@ public class Fornecedores extends JDialog {
 				JOptionPane.showMessageDialog(null, "Fornecedor cadastrado com sucesso!");
 
 				limparCampos();
-				((DefaultTableModel) tblFornecedores.getModel()).setRowCount(0);
+				lblStatusCEP.setVisible(false);
 				txtBuscarFor.setText(null);
 				// NUNCA esquecer de encerrar a conexao
 				con.close();
@@ -1225,7 +1244,7 @@ public class Fornecedores extends JDialog {
 		// Validacao do IE fornecedor
 		if (txtForIE.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null,
-					"Preencha corretamente o IE do fornecedor ou, caso não o tenha, desabilite-o.");
+					"Preencha a Inscrição Estadual (IE) do fornecedor.");
 			txtForIE.requestFocus();
 		}
 
@@ -1328,6 +1347,8 @@ public class Fornecedores extends JDialog {
 				txtForID.setText(null);
 
 				btnBuscar.setEnabled(false);
+				
+				lblStatusCEP.setVisible(false);
 
 				// NUNCA esquecer de encerrar a conexao
 				con.close();
@@ -1361,7 +1382,7 @@ public class Fornecedores extends JDialog {
 		// Validacao do IM fornecedor
 		if (txtForIM.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null,
-					"Preencha corretamente o IM do fornecedor ou, caso não o tenha, desabilite-o.");
+					"Preencha a Inscrição Municipal (IM) do fornecedor.");
 			txtForIM.requestFocus();
 		}
 
@@ -1464,6 +1485,8 @@ public class Fornecedores extends JDialog {
 				txtForID.setText(null);
 
 				btnBuscar.setEnabled(false);
+				
+				lblStatusCEP.setVisible(false);
 
 				// NUNCA esquecer de encerrar a conexao
 				con.close();
@@ -1497,14 +1520,14 @@ public class Fornecedores extends JDialog {
 		// Validacao do IE fornecedor
 		if (txtForIE.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null,
-					"Preencha corretamente o IE do fornecedor ou, caso não o tenha, desabilite-o.");
+					"Preencha a Inscrição Estadual (IE) do fornecedor.");
 			txtForIE.requestFocus();
 		}
 
 		// Validacao do IM fornecedor
 		if (txtForIM.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null,
-					"Preencha corretamente o IM do fornecedor ou, caso não o tenha, desabilite-o.");
+					"Preencha a Inscrição Municipal (IM) do fornecedor.");
 			txtForIM.requestFocus();
 		}
 
@@ -1608,6 +1631,8 @@ public class Fornecedores extends JDialog {
 				txtForID.setText(null);
 
 				btnBuscar.setEnabled(false);
+				
+				lblStatusCEP.setVisible(false);
 
 				// NUNCA esquecer de encerrar a conexao
 				con.close();
@@ -1736,6 +1761,8 @@ public class Fornecedores extends JDialog {
 				txtForID.setText(null);
 
 				btnBuscar.setEnabled(false);
+				
+				lblStatusCEP.setVisible(false);
 
 				// NUNCA esquecer de encerrar a conexao
 				con.close();
@@ -1849,10 +1876,11 @@ public class Fornecedores extends JDialog {
 
 					if (resultado.equals("1")) {
 						lblStatusCEP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/check.png")));
+						lblStatusCEP.setVisible(true);
 					}
 
 					else {
-						JOptionPane.showMessageDialog(null, "CEP n�o encontrado");
+						JOptionPane.showMessageDialog(null, "CEP não encontrado");
 					}
 				}
 			}
@@ -1870,8 +1898,9 @@ public class Fornecedores extends JDialog {
 
 	private void limparCampos() {
 		// Limpar a tabela
-		// ((DefaultTableModel) tblFornecedores.getModel()).setRowCount(0);
+		((DefaultTableModel) tblFornecedores.getModel()).setRowCount(0);
 
+		txtBuscarFor.requestFocus();
 		txtForCNPJ.setText(null);
 		txtForIE.setText(null);
 		txtForIM.setText(null);
@@ -1892,10 +1921,10 @@ public class Fornecedores extends JDialog {
 		btnAlterar.setEnabled(false);
 		btnExcluir.setEnabled(false);
 		btnAdicionar.setEnabled(true);
-		txtForIE.setEditable(false);
-		txtForIM.setEditable(false);
-		chkIE.setSelected(false);
-		chkIM.setSelected(false);
+		//txtForIE.setEditable(false);
+		//txtForIM.setEditable(false);
+		//chkIE.setSelected(false);
+		//chkIM.setSelected(false);
 
 	}
 } // Fim do codigo

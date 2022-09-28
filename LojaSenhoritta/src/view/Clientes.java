@@ -27,6 +27,8 @@ import java.awt.Cursor;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -104,7 +106,23 @@ public class Clientes extends JDialog {
 
 		txtBuscarCli = new JTextField();
 		txtBuscarCli.setForeground(Color.DARK_GRAY);
-		txtBuscarCli.setToolTipText("");
+		txtBuscarCli.setText("Digite para pesquisar...        ⌕");
+		txtBuscarCli.addFocusListener(new FocusListener() {
+			@Override
+			public void focusGained(FocusEvent event) {
+				if (txtBuscarCli.getText().equals("Digite para pesquisar...        ⌕")) {
+					txtBuscarCli.setText("");
+				}
+			}
+
+			@Override
+			public void focusLost(FocusEvent event) {
+				if (txtBuscarCli.getText().equals("")) {
+					txtBuscarCli.setText("Digite para pesquisar...        ⌕");
+				}
+			}
+		});
+
 		txtBuscarCli.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
@@ -113,9 +131,8 @@ public class Clientes extends JDialog {
 
 			}
 		});
-		txtBuscarCli.setBounds(67, 13, 197, 20);
+		txtBuscarCli.setBounds(67, 13, 168, 20);
 		getContentPane().add(txtBuscarCli);
-		txtBuscarCli.setColumns(10);
 
 		JLabel lblNewLabel_2 = new JLabel("ID");
 		lblNewLabel_2.setBounds(24, 139, 46, 14);
@@ -155,7 +172,7 @@ public class Clientes extends JDialog {
 		getContentPane().add(lblNewLabel_9);
 
 		cboCliMarketing = new JComboBox();
-		cboCliMarketing.setModel(new DefaultComboBoxModel(new String[] { "", "Sim", "N�o" }));
+		cboCliMarketing.setModel(new DefaultComboBoxModel(new String[] { "", "Sim", "Não" }));
 		cboCliMarketing.setBounds(526, 247, 81, 22);
 		getContentPane().add(cboCliMarketing);
 
@@ -184,7 +201,7 @@ public class Clientes extends JDialog {
 
 			public void actionPerformed(ActionEvent e) {
 				if (txtCliCEP.getText().equals("")) {
-					JOptionPane.showMessageDialog(null, "Informe o CEP para realizar a busca do endere�o");
+					JOptionPane.showMessageDialog(null, "Informe o CEP para realizar a busca do endereço");
 					txtCliCEP.requestFocus();
 				} else {
 					buscarCEP();
@@ -425,7 +442,7 @@ public class Clientes extends JDialog {
 	DAO dao = new DAO();
 
 	/**
-	 * Metodo responsavel pela pesquisa avançada do cliente usando o seu nome e a
+	 * Metodo responsavel pela pesquisa avancada do cliente usando o seu nome e a
 	 * biblioteca rs2xml
 	 */
 
@@ -518,15 +535,15 @@ public class Clientes extends JDialog {
 				txtCliCPF.setText(rs.getString(4));
 				txtCliNome.setText(rs.getString(2));
 				txtCliFone.setText(rs.getString(3));
-				txtCliEmail.setText(rs.getString(6));
-				cboCliMarketing.setSelectedItem(rs.getString(7));
-				txtCliCEP.setText(rs.getString(8));
-				txtCliEndereco.setText(rs.getString(9));
-				txtCliNumero.setText(rs.getString(11));
-				txtCliComplemento.setText(rs.getString(12));
-				txtCliBairro.setText(rs.getString(10));
-				txtCliCidade.setText(rs.getString(13));
-				cboCliUF.setSelectedItem(rs.getString(14));
+				txtCliEmail.setText(rs.getString(5));
+				cboCliMarketing.setSelectedItem(rs.getString(6));
+				txtCliCEP.setText(rs.getString(7));
+				txtCliEndereco.setText(rs.getString(8));
+				txtCliNumero.setText(rs.getString(10));
+				txtCliComplemento.setText(rs.getString(11));
+				txtCliBairro.setText(rs.getString(9));
+				txtCliCidade.setText(rs.getString(12));
+				cboCliUF.setSelectedItem(rs.getString(13));
 				txtBuscarCli.requestFocus();
 				btnAlterar.setEnabled(true);
 				btnExcluir.setEnabled(true);
@@ -565,7 +582,7 @@ public class Clientes extends JDialog {
 			txtCliFone.requestFocus();
 		}
 
-		// Validacao da autorização do envio de comunicados via e-mail para o cliente
+		// Validacao da autorizacao do envio de comunicados via e-mail para o cliente
 		else if (cboCliMarketing.getSelectedItem().equals("")) {
 			JOptionPane.showMessageDialog(null, "Selecione se o cliente deseja receber comunicados via e-mail");
 			cboCliMarketing.requestFocus();
@@ -603,7 +620,7 @@ public class Clientes extends JDialog {
 				JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
 
 				limparCampos();
-				((DefaultTableModel) tblClientes.getModel()).setRowCount(0);
+				lblStatusCEP.setVisible(false);
 				txtBuscarCli.setText(null);
 				// NUNCA esquecer de encerrar a conexao
 				con.close();
@@ -643,7 +660,7 @@ public class Clientes extends JDialog {
 			txtCliFone.requestFocus();
 		}
 
-		// Validacao da autorização do envio de comunicados via e-mail para o cliente
+		// Validacao da autorizacao do envio de comunicados via e-mail para o cliente
 		else if (cboCliMarketing.getSelectedItem().equals("")) {
 			JOptionPane.showMessageDialog(null, "Selecione se o cliente deseja receber comunicados via e-mail");
 			cboCliMarketing.requestFocus();
@@ -683,7 +700,7 @@ public class Clientes extends JDialog {
 
 				limparCampos();
 
-				((DefaultTableModel) tblClientes.getModel()).setRowCount(0);
+				lblStatusCEP.setVisible(false);
 
 				txtBuscarCli.setText(null);
 
@@ -741,7 +758,7 @@ public class Clientes extends JDialog {
 				btnBuscar.setEnabled(false);
 
 				// Exibir mensagem ao deletar cliente
-				JOptionPane.showMessageDialog(null, "Cliente exclu�do com sucesso!");
+				JOptionPane.showMessageDialog(null, "Cliente excluído com sucesso!");
 
 				// NUNCA esquecer de encerrar a conexao
 				con.close();
@@ -801,10 +818,11 @@ public class Clientes extends JDialog {
 
 					if (resultado.equals("1")) {
 						lblStatusCEP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/check.png")));
+						lblStatusCEP.setVisible(true);
 					}
 
 					else {
-						JOptionPane.showMessageDialog(null, "CEP n�o encontrado");
+						JOptionPane.showMessageDialog(null, "CEP não encontrado");
 					}
 				}
 			}
@@ -822,8 +840,9 @@ public class Clientes extends JDialog {
 
 	private void limparCampos() {
 		// Limpar a tabela
-		// ((DefaultTableModel) tblClientes.getModel()).setRowCount(0);
+		((DefaultTableModel) tblClientes.getModel()).setRowCount(0);
 
+		txtBuscarCli.requestFocus();
 		txtCliCPF.setText(null);
 		txtCliNome.setText(null);
 		txtCliFone.setText(null);

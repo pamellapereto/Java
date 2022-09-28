@@ -155,7 +155,7 @@ public class Principal extends JFrame {
 			}
 		});
 
-		btnRelatorios.setToolTipText("RelatÃ³rios");
+		btnRelatorios.setToolTipText("Relatórios");
 		btnRelatorios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRelatorios.setIcon(new ImageIcon(Principal.class.getResource("/img/report.png")));
 		btnRelatorios.setBounds(172, 177, 128, 128);

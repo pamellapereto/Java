@@ -39,7 +39,7 @@ public class Relatorios extends JDialog {
 
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Ferramentas.class.getResource("/img/logo.png")));
-		setTitle("RelatÃ³rios");
+		setTitle("Relatórios");
 		setModal(true);
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());

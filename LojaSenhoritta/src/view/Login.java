@@ -217,7 +217,7 @@ public class Login extends JFrame {
 					principal.setVisible(true);
 
 					// Setar o nome do usuario na tela principal
-					principal.txtLoginPrincipal.setText("Usu√°rio: " + rs.getString(2));
+					principal.txtLoginPrincipal.setText("Usu·rio: " + rs.getString(2));
 
 					if (perfil.equals("admin")) {
 
