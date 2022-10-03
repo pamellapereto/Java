@@ -737,12 +737,6 @@ public class Fornecedores extends JDialog {
 			txtForCNPJ.requestFocus();
 		}
 
-		// Validacao do IE fornecedor
-		if (txtForIE.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null,
-					"Preencha a Inscrição Estadual (IE) do fornecedor.");
-			txtForIE.requestFocus();
-		}
 
 		// Validacao da razao social do fornecedor
 		else if (txtForRazao.getText().isEmpty()) {
@@ -863,12 +857,6 @@ public class Fornecedores extends JDialog {
 			txtForCNPJ.requestFocus();
 		}
 
-		// Validacao do IM fornecedor
-		if (txtForIM.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null,
-					"Preencha a Inscrição Municipal (IM) do fornecedor.");
-			txtForIM.requestFocus();
-		}
 
 		// Validacao da razao social do fornecedor
 		else if (txtForRazao.getText().isEmpty()) {
@@ -988,21 +976,7 @@ public class Fornecedores extends JDialog {
 			JOptionPane.showMessageDialog(null, "Preencha o CNPJ do fornecedor");
 			txtForCNPJ.requestFocus();
 		}
-
-		// Validacao do IE fornecedor
-		if (txtForIE.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null,
-					"Preencha a Inscrição Estadual (IE) do fornecedor.");
-			txtForIE.requestFocus();
-		}
-
-		// Validacao do IM fornecedor
-		if (txtForIM.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null,
-					"Preencha a Inscrição Municipal (IM) do fornecedor.");
-			txtForIM.requestFocus();
-		}
-
+		
 		// Validacao da razao social do fornecedor
 		else if (txtForRazao.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Preencha a razão social do fornecedor");
@@ -1241,13 +1215,6 @@ public class Fornecedores extends JDialog {
 			txtForCNPJ.requestFocus();
 		}
 
-		// Validacao do IE fornecedor
-		if (txtForIE.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null,
-					"Preencha a Inscrição Estadual (IE) do fornecedor.");
-			txtForIE.requestFocus();
-		}
-
 		// Validacao da razao social do fornecedor
 		else if (txtForRazao.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Preencha a razão social do fornecedor");
@@ -1379,13 +1346,6 @@ public class Fornecedores extends JDialog {
 			txtForCNPJ.requestFocus();
 		}
 
-		// Validacao do IM fornecedor
-		if (txtForIM.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null,
-					"Preencha a Inscrição Municipal (IM) do fornecedor.");
-			txtForIM.requestFocus();
-		}
-
 		// Validacao da razao social do fornecedor
 		else if (txtForRazao.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Preencha a razão social do fornecedor");
@@ -1515,20 +1475,6 @@ public class Fornecedores extends JDialog {
 		if (txtForCNPJ.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Preencha o CNPJ do fornecedor");
 			txtForCNPJ.requestFocus();
-		}
-
-		// Validacao do IE fornecedor
-		if (txtForIE.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null,
-					"Preencha a Inscrição Estadual (IE) do fornecedor.");
-			txtForIE.requestFocus();
-		}
-
-		// Validacao do IM fornecedor
-		if (txtForIM.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null,
-					"Preencha a Inscrição Municipal (IM) do fornecedor.");
-			txtForIM.requestFocus();
 		}
 
 		// Validacao da razao social do fornecedor
