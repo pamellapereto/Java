@@ -1,3 +1,4 @@
+// INSERIR REDE SOCIAL
 package view;
 
 import java.awt.EventQueue;
@@ -701,17 +702,18 @@ public class Fornecedores extends JDialog {
 				txtForRazao.setText(rs.getString(5));
 				txtForFantasia.setText(rs.getString(6));
 				txtForSite.setText(rs.getString(7));
-				txtForFone.setText(rs.getString(8));
-				txtForContato.setText(rs.getString(9));
-				txtForEmail.setText(rs.getString(10));
-				txtForCEP.setText(rs.getString(11));
-				txtForEndereco.setText(rs.getString(12));
-				txtForNumero.setText(rs.getString(13));
-				txtForComplemento.setText(rs.getString(14));
-				txtForBairro.setText(rs.getString(15));
-				txtForCidade.setText(rs.getString(16));
-				cboForUF.setSelectedItem(rs.getString(17));
-				txtForObs.setText(rs.getString(18));
+				//Inserir REDE SOCIAL > SERÁ O CAMPO 8
+				txtForFone.setText(rs.getString(9));
+				txtForContato.setText(rs.getString(10));
+				txtForEmail.setText(rs.getString(11));
+				txtForCEP.setText(rs.getString(12));
+				txtForEndereco.setText(rs.getString(13));
+				txtForNumero.setText(rs.getString(14));
+				txtForComplemento.setText(rs.getString(15));
+				txtForBairro.setText(rs.getString(16));
+				txtForCidade.setText(rs.getString(17));
+				cboForUF.setSelectedItem(rs.getString(18));
+				txtForObs.setText(rs.getString(19));
 				btnAlterar.setEnabled(true);
 				btnExcluir.setEnabled(true);
 				btnBuscarCEP.setEnabled(true);

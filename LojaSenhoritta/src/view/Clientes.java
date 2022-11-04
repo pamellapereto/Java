@@ -1,3 +1,5 @@
+// INSERIR DATA DE NASCIMENTO
+
 package view;
 
 import java.awt.EventQueue;
@@ -531,19 +533,20 @@ public class Clientes extends JDialog {
 			// rs.next() -> existencia de cliente
 			if (rs.next()) {
 				// Preencher (setar) os campos do formulario
-				txtBuscarCli.setText(rs.getString(2));
-				txtCliCPF.setText(rs.getString(4));
-				txtCliNome.setText(rs.getString(2));
-				txtCliFone.setText(rs.getString(3));
-				txtCliEmail.setText(rs.getString(5));
-				cboCliMarketing.setSelectedItem(rs.getString(6));
-				txtCliCEP.setText(rs.getString(7));
-				txtCliEndereco.setText(rs.getString(8));
-				txtCliNumero.setText(rs.getString(10));
-				txtCliComplemento.setText(rs.getString(11));
-				txtCliBairro.setText(rs.getString(9));
-				txtCliCidade.setText(rs.getString(12));
-				cboCliUF.setSelectedItem(rs.getString(13));
+				txtBuscarCli.setText(rs.getString(4));
+				txtCliCPF.setText(rs.getString(6));
+				txtCliNome.setText(rs.getString(4));
+				txtCliFone.setText(rs.getString(5));
+				txtCliEmail.setText(rs.getString(7));
+				cboCliMarketing.setSelectedItem(rs.getString(8));
+				// INSERIR DATANASCIMENTO > CAMPO 9
+				txtCliCEP.setText(rs.getString(11));
+				txtCliEndereco.setText(rs.getString(12));
+				txtCliNumero.setText(rs.getString(14));
+				txtCliComplemento.setText(rs.getString(15));
+				txtCliBairro.setText(rs.getString(13));
+				txtCliCidade.setText(rs.getString(16));
+				cboCliUF.setSelectedItem(rs.getString(17));
 				txtBuscarCli.requestFocus();
 				btnAlterar.setEnabled(true);
 				btnExcluir.setEnabled(true);
