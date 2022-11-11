@@ -68,12 +68,12 @@ public class Usuarios extends JDialog {
 		setResizable(false);
 		setModal(true);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Usuarios.class.getResource("/img/logo.png")));
-		setTitle("Usuários");
+		setTitle("Usuarios");
 		setBounds(100, 100, 486, 341);
 		getContentPane().setLayout(null);
 
 		JLabel lblNewLabel_2 = new JLabel("Login");
-		lblNewLabel_2.setBounds(39, 35, 46, 14);
+		lblNewLabel_2.setBounds(30, 35, 46, 14);
 		getContentPane().add(lblNewLabel_2);
 
 		txtUsuLogin = new JTextField();
@@ -84,7 +84,7 @@ public class Usuarios extends JDialog {
 			}
 		});
 
-		txtUsuLogin.setBounds(82, 32, 125, 20);
+		txtUsuLogin.setBounds(95, 32, 125, 20);
 		getContentPane().add(txtUsuLogin);
 
 		JLabel lblNewLabel = new JLabel("ID");
@@ -96,8 +96,8 @@ public class Usuarios extends JDialog {
 		txtUsuId.setBounds(340, 32, 46, 20);
 		getContentPane().add(txtUsuId);
 
-		JLabel lblNewLabel_1 = new JLabel("Usu\u00E1rio");
-		lblNewLabel_1.setBounds(39, 91, 46, 14);
+		JLabel lblNewLabel_1 = new JLabel("Usuario");
+		lblNewLabel_1.setBounds(30, 91, 71, 14);
 		getContentPane().add(lblNewLabel_1);
 
 		txtUsuNome = new JTextField();
@@ -105,7 +105,7 @@ public class Usuarios extends JDialog {
 		getContentPane().add(txtUsuNome);
 
 		JLabel lblNewLabel_3 = new JLabel("Senha");
-		lblNewLabel_3.setBounds(39, 133, 46, 14);
+		lblNewLabel_3.setBounds(30, 133, 46, 14);
 		getContentPane().add(lblNewLabel_3);
 
 		txtUsuSenha = new JPasswordField();
@@ -113,7 +113,7 @@ public class Usuarios extends JDialog {
 		getContentPane().add(txtUsuSenha);
 
 		JLabel lblNewLabel_4 = new JLabel("Perfil");
-		lblNewLabel_4.setBounds(45, 180, 40, 14);
+		lblNewLabel_4.setBounds(30, 180, 40, 14);
 		getContentPane().add(lblNewLabel_4);
 
 		cboUsuPerfil = new JComboBox();
@@ -133,7 +133,7 @@ public class Usuarios extends JDialog {
 		btnPesquisar.setContentAreaFilled(false);
 		btnPesquisar.setBorderPainted(false);
 		btnPesquisar.setIcon(new ImageIcon(Usuarios.class.getResource("/img/pesquisar.png")));
-		btnPesquisar.setBounds(216, 25, 32, 32);
+		btnPesquisar.setBounds(228, 25, 32, 32);
 		getContentPane().add(btnPesquisar);
 
 		btnAdicionar = new JButton("");
@@ -295,7 +295,7 @@ public class Usuarios extends JDialog {
 				else {
 					// Validacao
 
-					JOptionPane.showMessageDialog(null, "Usuário inexistente!");
+					JOptionPane.showMessageDialog(null, "Usuario inexistente!");
 
 					txtUsuNome.requestFocus();
 					btnAdicionar.setEnabled(true);
@@ -371,7 +371,7 @@ public class Usuarios extends JDialog {
 				pst.executeUpdate();
 
 				// Exibir mensagem ao cadastrar usuario com sucesso no banco
-				JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!");
+				JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso!");
 
 				limparCampos();
 				txtUsuLogin.setText(null);
@@ -555,7 +555,7 @@ public class Usuarios extends JDialog {
 	private void excluirUsuario() {
 
 		// Validacao
-		int confirma = JOptionPane.showConfirmDialog(null, "Confirma a exclusão do usuário?", "Atenção!",
+		int confirma = JOptionPane.showConfirmDialog(null, "Confirma a exclusao do usuario?", "AtenÃ§ao!",
 				JOptionPane.YES_NO_OPTION);
 
 		// Logica principal
@@ -580,7 +580,7 @@ public class Usuarios extends JDialog {
 				txtUsuLogin.requestFocus();
 
 				// Exibir mensagem ao deletar usuario
-				JOptionPane.showMessageDialog(null, "Usuário excluído com sucesso!");
+				JOptionPane.showMessageDialog(null, "Usuario excluido com sucesso!");
 
 				// NUNCA esquecer de encerrar a conexao
 				con.close();

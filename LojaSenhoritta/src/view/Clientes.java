@@ -1,5 +1,3 @@
-// INSERIR DATA DE NASCIMENTO
-
 package view;
 
 import java.awt.EventQueue;
@@ -70,7 +68,7 @@ public class Clientes extends JDialog {
 	private JComboBox cboCliMarketing;
 	private JButton btnAdicionar;
 	private JButton btnAlterar;
-	private JButton btnExcluir;
+	//private JButton btnExcluir;
 	private JButton btnBuscar;
 	private JButton btnBuscarCEP;
 
@@ -103,7 +101,7 @@ public class Clientes extends JDialog {
 		getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Cliente");
-		lblNewLabel.setBounds(24, 16, 46, 14);
+		lblNewLabel.setBounds(24, 16, 72, 14);
 		getContentPane().add(lblNewLabel);
 
 		txtBuscarCli = new JTextField();
@@ -133,7 +131,7 @@ public class Clientes extends JDialog {
 
 			}
 		});
-		txtBuscarCli.setBounds(67, 13, 168, 20);
+		txtBuscarCli.setBounds(84, 13, 168, 20);
 		getContentPane().add(txtBuscarCli);
 
 		JLabel lblNewLabel_2 = new JLabel("ID");
@@ -154,14 +152,14 @@ public class Clientes extends JDialog {
 		getContentPane().add(txtCliCPF);
 
 		JLabel lblNewLabel_5 = new JLabel("Nome*");
-		lblNewLabel_5.setBounds(215, 197, 81, 14);
+		lblNewLabel_5.setBounds(202, 197, 81, 14);
 		getContentPane().add(lblNewLabel_5);
 
 		txtCliNome = new JTextField();
 		txtCliNome.setBounds(260, 194, 227, 20);
 		getContentPane().add(txtCliNome);
 
-		JLabel lblNewLabel_8 = new JLabel("Fone*");
+		JLabel lblNewLabel_8 = new JLabel("Fone");
 		lblNewLabel_8.setBounds(503, 197, 46, 14);
 		getContentPane().add(lblNewLabel_8);
 
@@ -169,21 +167,21 @@ public class Clientes extends JDialog {
 		txtCliFone.setBounds(551, 194, 123, 20);
 		getContentPane().add(txtCliFone);
 
-		JLabel lblNewLabel_9 = new JLabel("Deseja receber comunicados via e-mail?*");
-		lblNewLabel_9.setBounds(283, 250, 243, 14);
+		JLabel lblNewLabel_9 = new JLabel("Deseja receber comunicados via e-mail?");
+		lblNewLabel_9.setBounds(283, 250, 273, 14);
 		getContentPane().add(lblNewLabel_9);
 
 		cboCliMarketing = new JComboBox();
-		cboCliMarketing.setModel(new DefaultComboBoxModel(new String[] { "", "Sim", "Não" }));
-		cboCliMarketing.setBounds(526, 247, 81, 22);
+		cboCliMarketing.setModel(new DefaultComboBoxModel(new String[] { "", "Sim", "Nao" }));
+		cboCliMarketing.setBounds(551, 246, 81, 22);
 		getContentPane().add(cboCliMarketing);
 
 		JLabel lblNewLabel_10 = new JLabel("E-mail");
-		lblNewLabel_10.setBounds(24, 250, 46, 14);
+		lblNewLabel_10.setBounds(24, 250, 52, 14);
 		getContentPane().add(lblNewLabel_10);
 
 		txtCliEmail = new JTextField();
-		txtCliEmail.setBounds(73, 247, 179, 20);
+		txtCliEmail.setBounds(76, 247, 179, 20);
 		getContentPane().add(txtCliEmail);
 
 		JLabel lblNewLabel_11 = new JLabel("CEP");
@@ -212,31 +210,31 @@ public class Clientes extends JDialog {
 		});
 
 		btnBuscarCEP.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnBuscarCEP.setBounds(210, 302, 107, 23);
+		btnBuscarCEP.setBounds(210, 302, 148, 23);
 		getContentPane().add(btnBuscarCEP);
 
 		JLabel lblNewLabel_12 = new JLabel("Endereço");
-		lblNewLabel_12.setBounds(24, 351, 59, 14);
+		lblNewLabel_12.setBounds(24, 351, 72, 14);
 		getContentPane().add(lblNewLabel_12);
 
 		txtCliEndereco = new JTextField();
 		txtCliEndereco.setBounds(94, 348, 218, 20);
 		getContentPane().add(txtCliEndereco);
 
-		JLabel lblNewLabel_13 = new JLabel("Número");
-		lblNewLabel_13.setBounds(338, 351, 46, 14);
+		JLabel lblNewLabel_13 = new JLabel("Numero");
+		lblNewLabel_13.setBounds(333, 351, 72, 14);
 		getContentPane().add(lblNewLabel_13);
 
 		txtCliNumero = new JTextField();
-		txtCliNumero.setBounds(394, 348, 72, 20);
+		txtCliNumero.setBounds(402, 348, 64, 20);
 		getContentPane().add(txtCliNumero);
 
 		JLabel lblNewLabel_14 = new JLabel("Complemento");
-		lblNewLabel_14.setBounds(495, 351, 87, 14);
+		lblNewLabel_14.setBounds(490, 351, 142, 14);
 		getContentPane().add(lblNewLabel_14);
 
 		txtCliComplemento = new JTextField();
-		txtCliComplemento.setBounds(585, 348, 99, 20);
+		txtCliComplemento.setBounds(593, 348, 91, 20);
 		getContentPane().add(txtCliComplemento);
 
 		JLabel lblNewLabel_15 = new JLabel("Bairro");
@@ -248,7 +246,7 @@ public class Clientes extends JDialog {
 		getContentPane().add(txtCliBairro);
 
 		JLabel lblNewLabel_16 = new JLabel("Cidade");
-		lblNewLabel_16.setBounds(294, 395, 46, 14);
+		lblNewLabel_16.setBounds(294, 395, 64, 14);
 		getContentPane().add(lblNewLabel_16);
 
 		txtCliCidade = new JTextField();
@@ -301,7 +299,7 @@ public class Clientes extends JDialog {
 		btnAlterar.setBounds(557, 440, 64, 64);
 		getContentPane().add(btnAlterar);
 
-		btnExcluir = new JButton("");
+		/*btnExcluir = new JButton("");
 		btnExcluir.setEnabled(false);
 		btnExcluir.addActionListener(new ActionListener() {
 
@@ -316,7 +314,7 @@ public class Clientes extends JDialog {
 		btnExcluir.setContentAreaFilled(false);
 		btnExcluir.setBorderPainted(false);
 		btnExcluir.setBounds(620, 440, 64, 64);
-		getContentPane().add(btnExcluir);
+		getContentPane().add(btnExcluir);*/
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(24, 41, 552, 72);
@@ -344,7 +342,7 @@ public class Clientes extends JDialog {
 		btnBuscar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		getContentPane().add(btnBuscar);
 
-		JLabel lblNewLabel_13_1 = new JLabel("*Campos obrigatórios");
+		JLabel lblNewLabel_13_1 = new JLabel("*Campos obrigatorios");
 		lblNewLabel_13_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel_13_1.setForeground(Color.BLACK);
 		lblNewLabel_13_1.setBounds(24, 467, 157, 14);
@@ -549,7 +547,7 @@ public class Clientes extends JDialog {
 				cboCliUF.setSelectedItem(rs.getString(17));
 				txtBuscarCli.requestFocus();
 				btnAlterar.setEnabled(true);
-				btnExcluir.setEnabled(true);
+				//btnExcluir.setEnabled(true);
 				btnBuscarCEP.setEnabled(true);
 			}
 
@@ -577,18 +575,6 @@ public class Clientes extends JDialog {
 		else if (txtCliNome.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Preencha o nome do cliente");
 			txtCliNome.requestFocus();
-		}
-
-		// Validacao do telefone do cliente
-		else if (txtCliFone.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Preencha o telefone do cliente");
-			txtCliFone.requestFocus();
-		}
-
-		// Validacao da autorizacao do envio de comunicados via e-mail para o cliente
-		else if (cboCliMarketing.getSelectedItem().equals("")) {
-			JOptionPane.showMessageDialog(null, "Selecione se o cliente deseja receber comunicados via e-mail");
-			cboCliMarketing.requestFocus();
 		}
 
 		else {
@@ -657,17 +643,6 @@ public class Clientes extends JDialog {
 			txtCliNome.requestFocus();
 		}
 
-		// Validacao do telefone do cliente
-		else if (txtCliFone.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Preencha o telefone do cliente");
-			txtCliFone.requestFocus();
-		}
-
-		// Validacao da autorizacao do envio de comunicados via e-mail para o cliente
-		else if (cboCliMarketing.getSelectedItem().equals("")) {
-			JOptionPane.showMessageDialog(null, "Selecione se o cliente deseja receber comunicados via e-mail");
-			cboCliMarketing.requestFocus();
-		}
 
 		else {
 			// Logica principal
@@ -731,7 +706,7 @@ public class Clientes extends JDialog {
 
 	}
 
-	private void excluirCliente() {
+	/*private void excluirCliente() {
 
 		// Validacao
 		int confirma = JOptionPane.showConfirmDialog(null, "Confirma a exclusão do cliente?", "Atenção!",
@@ -773,7 +748,7 @@ public class Clientes extends JDialog {
 			}
 
 		}
-	}
+	}*/
 
 	private void buscarCEP() {
 
@@ -825,7 +800,7 @@ public class Clientes extends JDialog {
 					}
 
 					else {
-						JOptionPane.showMessageDialog(null, "CEP não encontrado");
+						JOptionPane.showMessageDialog(null, "CEP nao encontrado");
 					}
 				}
 			}
@@ -857,9 +832,10 @@ public class Clientes extends JDialog {
 		txtCliBairro.setText(null);
 		txtCliCidade.setText(null);
 		cboCliMarketing.setSelectedItem("");
+		lblStatusCEP.setVisible(false);
 		cboCliUF.setSelectedItem("");
 		btnAlterar.setEnabled(false);
-		btnExcluir.setEnabled(false);
+		//btnExcluir.setEnabled(false);
 		btnAdicionar.setEnabled(true);
 
 	}

@@ -69,7 +69,7 @@ public class Principal extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Principal.class.getResource("/img/logo.png")));
 		setTitle("Loja Senhoritta");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 640, 480);
+		setBounds(100, 100, 744, 481);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -88,9 +88,9 @@ public class Principal extends JFrame {
 		});
 
 		btnUsuarios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnUsuarios.setToolTipText("Usu\u00E1rios");
+		btnUsuarios.setToolTipText("Usuarios");
 		btnUsuarios.setIcon(new ImageIcon(Principal.class.getResource("/img/users.png")));
-		btnUsuarios.setBounds(20, 23, 128, 128);
+		btnUsuarios.setBounds(47, 36, 128, 128);
 		contentPane.add(btnUsuarios);
 
 		JButton btnNewButton_1 = new JButton("");
@@ -103,7 +103,7 @@ public class Principal extends JFrame {
 		btnNewButton_1.setToolTipText("Fornecedores");
 		btnNewButton_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_1.setIcon(new ImageIcon(Principal.class.getResource("/img/supplier.png")));
-		btnNewButton_1.setBounds(172, 23, 128, 128);
+		btnNewButton_1.setBounds(302, 36, 128, 128);
 		contentPane.add(btnNewButton_1);
 
 		JButton btnNewButton_1_1 = new JButton("");
@@ -116,7 +116,7 @@ public class Principal extends JFrame {
 		btnNewButton_1_1.setToolTipText("Clientes");
 		btnNewButton_1_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_1_1.setIcon(new ImageIcon(Principal.class.getResource("/img/client.png")));
-		btnNewButton_1_1.setBounds(472, 23, 128, 128);
+		btnNewButton_1_1.setBounds(552, 36, 128, 128);
 		contentPane.add(btnNewButton_1_1);
 
 		JButton btnNewButton_2 = new JButton("");
@@ -129,10 +129,10 @@ public class Principal extends JFrame {
 		btnNewButton_2.setToolTipText("Produtos");
 		btnNewButton_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_2.setIcon(new ImageIcon(Principal.class.getResource("/img/product.png")));
-		btnNewButton_2.setBounds(323, 23, 128, 128);
+		btnNewButton_2.setBounds(302, 227, 128, 128);
 		contentPane.add(btnNewButton_2);
 
-		JButton btnNewButton_3 = new JButton("");
+		/*JButton btnNewButton_3 = new JButton("");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PontoDeVenda pdv = new PontoDeVenda();
@@ -143,8 +143,8 @@ public class Principal extends JFrame {
 		btnNewButton_3.setToolTipText("PDV");
 		btnNewButton_3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_3.setIcon(new ImageIcon(Principal.class.getResource("/img/store.png")));
-		btnNewButton_3.setBounds(20, 177, 128, 128);
-		contentPane.add(btnNewButton_3);
+		btnNewButton_3.setBounds(85, 198, 128, 128);
+		contentPane.add(btnNewButton_3);*/
 
 		btnRelatorios = new JButton("");
 		btnRelatorios.setEnabled(false);
@@ -155,13 +155,13 @@ public class Principal extends JFrame {
 			}
 		});
 
-		btnRelatorios.setToolTipText("Relatórios");
+		btnRelatorios.setToolTipText("Relatorios");
 		btnRelatorios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRelatorios.setIcon(new ImageIcon(Principal.class.getResource("/img/report.png")));
-		btnRelatorios.setBounds(172, 177, 128, 128);
+		btnRelatorios.setBounds(47, 227, 128, 128);
 		contentPane.add(btnRelatorios);
 
-		JButton btnNewButton_2_1 = new JButton("");
+		/*JButton btnNewButton_2_1 = new JButton("");
 		btnNewButton_2_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Ferramentas ferramentas = new Ferramentas();
@@ -173,7 +173,7 @@ public class Principal extends JFrame {
 		btnNewButton_2_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_2_1.setIcon(new ImageIcon(Principal.class.getResource("/img/tools.png")));
 		btnNewButton_2_1.setBounds(323, 177, 128, 128);
-		contentPane.add(btnNewButton_2_1);
+		contentPane.add(btnNewButton_2_1);*/
 
 		JButton btnNewButton_1_1_1 = new JButton("");
 		btnNewButton_1_1_1.addActionListener(new ActionListener() {
@@ -186,19 +186,19 @@ public class Principal extends JFrame {
 		btnNewButton_1_1_1.setToolTipText("Sobre");
 		btnNewButton_1_1_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_1_1_1.setIcon(new ImageIcon(Principal.class.getResource("/img/info.png")));
-		btnNewButton_1_1_1.setBounds(472, 177, 128, 128);
+		btnNewButton_1_1_1.setBounds(552, 227, 128, 128);
 		contentPane.add(btnNewButton_1_1_1);
 
 		panelUsuario = new JPanel();
 		panelUsuario.setBackground(Color.GRAY);
-		panelUsuario.setBounds(0, 388, 624, 53);
+		panelUsuario.setBounds(0, 388, 728, 53);
 		contentPane.add(panelUsuario);
 		panelUsuario.setLayout(null);
 
 		lblData = new JLabel("");
 		lblData.setForeground(SystemColor.window);
 		lblData.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblData.setBounds(325, 11, 289, 31);
+		lblData.setBounds(360, 11, 368, 31);
 		panelUsuario.add(lblData);
 
 		txtLoginPrincipal = new JLabel("");

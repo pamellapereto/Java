@@ -1,4 +1,3 @@
-// INSERIR REDE SOCIAL
 package view;
 
 import java.awt.EventQueue;
@@ -105,11 +104,11 @@ public class Fornecedores extends JDialog {
 		setModal(true);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Fornecedores.class.getResource("/img/logo.png")));
 		setTitle("Fornecedores");
-		setBounds(100, 100, 718, 656);
+		setBounds(100, 100, 739, 656);
 		getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Fornecedor");
-		lblNewLabel.setBounds(24, 16, 68, 14);
+		lblNewLabel.setBounds(24, 16, 116, 14);
 		getContentPane().add(lblNewLabel);
 
 		
@@ -140,7 +139,7 @@ public class Fornecedores extends JDialog {
 
 			}
 		});
-		txtBuscarFor.setBounds(94, 13, 168, 20);
+		txtBuscarFor.setBounds(115, 13, 168, 20);
 		getContentPane().add(txtBuscarFor);
 		
 
@@ -179,20 +178,20 @@ public class Fornecedores extends JDialog {
 		txtForIM.setBounds(461, 194, 171, 20);
 		getContentPane().add(txtForIM);
 
-		JLabel lblNewLabel_5 = new JLabel("Razão Social*");
-		lblNewLabel_5.setBounds(24, 243, 81, 14);
+		JLabel lblNewLabel_5 = new JLabel("Razao Social*");
+		lblNewLabel_5.setBounds(24, 243, 125, 14);
 		getContentPane().add(lblNewLabel_5);
 
 		txtForRazao = new JTextField();
-		txtForRazao.setBounds(108, 240, 245, 20);
+		txtForRazao.setBounds(142, 240, 218, 20);
 		getContentPane().add(txtForRazao);
 
 		JLabel lblNewLabel_6 = new JLabel("Nome fantasia*");
-		lblNewLabel_6.setBounds(371, 243, 107, 14);
+		lblNewLabel_6.setBounds(371, 243, 116, 14);
 		getContentPane().add(lblNewLabel_6);
 
 		txtForFantasia = new JTextField();
-		txtForFantasia.setBounds(480, 240, 204, 20);
+		txtForFantasia.setBounds(488, 240, 204, 20);
 		getContentPane().add(txtForFantasia);
 
 		JLabel lblNewLabel_7 = new JLabel("Site");
@@ -204,7 +203,7 @@ public class Fornecedores extends JDialog {
 		getContentPane().add(txtForSite);
 
 		JLabel lblNewLabel_8 = new JLabel("Fone*");
-		lblNewLabel_8.setBounds(266, 284, 46, 14);
+		lblNewLabel_8.setBounds(260, 284, 52, 14);
 		getContentPane().add(lblNewLabel_8);
 
 		txtForFone = new JTextField();
@@ -212,11 +211,11 @@ public class Fornecedores extends JDialog {
 		getContentPane().add(txtForFone);
 
 		JLabel lblNewLabel_9 = new JLabel("Contato");
-		lblNewLabel_9.setBounds(441, 284, 46, 14);
+		lblNewLabel_9.setBounds(441, 284, 72, 14);
 		getContentPane().add(lblNewLabel_9);
 
 		txtForContato = new JTextField();
-		txtForContato.setBounds(505, 281, 179, 20);
+		txtForContato.setBounds(513, 281, 179, 20);
 		getContentPane().add(txtForContato);
 
 		JLabel lblNewLabel_10 = new JLabel("E-mail");
@@ -228,11 +227,11 @@ public class Fornecedores extends JDialog {
 		getContentPane().add(txtForEmail);
 
 		JLabel lblNewLabel_11 = new JLabel("CEP*");
-		lblNewLabel_11.setBounds(24, 388, 46, 14);
+		lblNewLabel_11.setBounds(24, 388, 61, 14);
 		getContentPane().add(lblNewLabel_11);
 
 		txtForCEP = new JTextField();
-		txtForCEP.setBounds(59, 385, 81, 20);
+		txtForCEP.setBounds(65, 385, 81, 20);
 		getContentPane().add(txtForCEP);
 
 		lblStatusCEP = new JLabel("");
@@ -253,47 +252,47 @@ public class Fornecedores extends JDialog {
 		});
 
 		btnBuscarCEP.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnBuscarCEP.setBounds(210, 382, 107, 23);
+		btnBuscarCEP.setBounds(210, 382, 168, 23);
 		getContentPane().add(btnBuscarCEP);
 
 		JLabel lblNewLabel_12 = new JLabel("Endereço*");
-		lblNewLabel_12.setBounds(24, 431, 59, 14);
+		lblNewLabel_12.setBounds(24, 431, 87, 14);
 		getContentPane().add(lblNewLabel_12);
 
 		txtForEndereco = new JTextField();
-		txtForEndereco.setBounds(94, 428, 218, 20);
+		txtForEndereco.setBounds(108, 428, 204, 20);
 		getContentPane().add(txtForEndereco);
 
-		JLabel lblNewLabel_13 = new JLabel("Número*");
-		lblNewLabel_13.setBounds(337, 431, 62, 14);
+		JLabel lblNewLabel_13 = new JLabel("Numero*");
+		lblNewLabel_13.setBounds(337, 431, 81, 14);
 		getContentPane().add(lblNewLabel_13);
 
 		txtForNumero = new JTextField();
-		txtForNumero.setBounds(394, 428, 72, 20);
+		txtForNumero.setBounds(420, 428, 61, 20);
 		getContentPane().add(txtForNumero);
 
 		JLabel lblNewLabel_14 = new JLabel("Complemento");
-		lblNewLabel_14.setBounds(495, 431, 87, 14);
+		lblNewLabel_14.setBounds(489, 431, 107, 14);
 		getContentPane().add(lblNewLabel_14);
 
 		txtForComplemento = new JTextField();
-		txtForComplemento.setBounds(585, 428, 99, 20);
+		txtForComplemento.setBounds(591, 428, 93, 20);
 		getContentPane().add(txtForComplemento);
 
 		JLabel lblNewLabel_15 = new JLabel("Bairro*");
-		lblNewLabel_15.setBounds(24, 475, 46, 14);
+		lblNewLabel_15.setBounds(24, 475, 61, 14);
 		getContentPane().add(lblNewLabel_15);
 
 		txtForBairro = new JTextField();
-		txtForBairro.setBounds(71, 472, 200, 20);
+		txtForBairro.setBounds(80, 472, 187, 20);
 		getContentPane().add(txtForBairro);
 
 		JLabel lblNewLabel_16 = new JLabel("Cidade*");
-		lblNewLabel_16.setBounds(294, 475, 46, 14);
+		lblNewLabel_16.setBounds(294, 475, 66, 14);
 		getContentPane().add(lblNewLabel_16);
 
 		txtForCidade = new JTextField();
-		txtForCidade.setBounds(349, 472, 200, 20);
+		txtForCidade.setBounds(362, 472, 187, 20);
 		getContentPane().add(txtForCidade);
 
 		JLabel lblNewLabel_17 = new JLabel("UF*");
@@ -307,12 +306,12 @@ public class Fornecedores extends JDialog {
 		cboForUF.setBounds(603, 471, 81, 22);
 		getContentPane().add(cboForUF);
 
-		JLabel lblNewLabel_18 = new JLabel("Observação");
-		lblNewLabel_18.setBounds(266, 327, 74, 14);
+		JLabel lblNewLabel_18 = new JLabel("Observaçao");
+		lblNewLabel_18.setBounds(283, 327, 116, 14);
 		getContentPane().add(lblNewLabel_18);
 
 		txtForObs = new JTextField();
-		txtForObs.setBounds(338, 324, 313, 20);
+		txtForObs.setBounds(379, 324, 313, 20);
 		getContentPane().add(txtForObs);
 
 		//chkIE = new JCheckBox("Editar Inscrição Estadual (IE)");
@@ -462,7 +461,7 @@ public class Fornecedores extends JDialog {
 		btnBuscar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		getContentPane().add(btnBuscar);
 
-		JLabel lblNewLabel_13_1 = new JLabel("*Campos obrigatórios");
+		JLabel lblNewLabel_13_1 = new JLabel("*Campos obrigatorios");
 		lblNewLabel_13_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel_13_1.setForeground(Color.BLACK);
 		lblNewLabel_13_1.setBounds(24, 547, 157, 14);
@@ -742,7 +741,7 @@ public class Fornecedores extends JDialog {
 
 		// Validacao da razao social do fornecedor
 		else if (txtForRazao.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Preencha a razão social do fornecedor");
+			JOptionPane.showMessageDialog(null, "Preencha a razao social do fornecedor");
 			txtForRazao.requestFocus();
 		}
 
@@ -790,7 +789,7 @@ public class Fornecedores extends JDialog {
 
 		// Validacao da UF do fornecedor
 		else if (cboForUF.getSelectedItem().equals("")) {
-			JOptionPane.showMessageDialog(null, "Selecione a União Federativa (UF) do fornecedor");
+			JOptionPane.showMessageDialog(null, "Selecione a Uniao Federativa (UF) do fornecedor");
 			cboForUF.requestFocus();
 		}
 
@@ -840,7 +839,7 @@ public class Fornecedores extends JDialog {
 			catch (SQLIntegrityConstraintViolationException ex) {
 
 				JOptionPane.showMessageDialog(null,
-						"Ocorreu um erro. \nVerifique novamente o CNPJ e/ou a Inscrição Estadual (IE).");
+						"Ocorreu um erro. \nVerifique novamente o CNPJ e/ou a Inscriçao Estadual (IE).");
 				txtForCNPJ.requestFocus();
 
 			} catch (Exception e) {
@@ -862,7 +861,7 @@ public class Fornecedores extends JDialog {
 
 		// Validacao da razao social do fornecedor
 		else if (txtForRazao.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Preencha a razão social do fornecedor");
+			JOptionPane.showMessageDialog(null, "Preencha a razao social do fornecedor");
 			txtForRazao.requestFocus();
 		}
 
@@ -910,7 +909,7 @@ public class Fornecedores extends JDialog {
 
 		// Validacao da UF do fornecedor
 		else if (cboForUF.getSelectedItem().equals("")) {
-			JOptionPane.showMessageDialog(null, "Selecione a União Federativa (UF) do fornecedor");
+			JOptionPane.showMessageDialog(null, "Selecione a Uniao Federativa (UF) do fornecedor");
 			cboForUF.requestFocus();
 		}
 
@@ -960,7 +959,7 @@ public class Fornecedores extends JDialog {
 			catch (SQLIntegrityConstraintViolationException ex) {
 
 				JOptionPane.showMessageDialog(null,
-						"Ocorreu um erro. \nVerifique novamente o CNPJ e/ou a Inscrição Municipal (IM).");
+						"Ocorreu um erro. \nVerifique novamente o CNPJ e/ou a Inscriçao Municipal (IM).");
 				txtForCNPJ.requestFocus();
 
 			} catch (Exception e) {
@@ -981,7 +980,7 @@ public class Fornecedores extends JDialog {
 		
 		// Validacao da razao social do fornecedor
 		else if (txtForRazao.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Preencha a razão social do fornecedor");
+			JOptionPane.showMessageDialog(null, "Preencha a razao social do fornecedor");
 			txtForRazao.requestFocus();
 		}
 
@@ -1029,7 +1028,7 @@ public class Fornecedores extends JDialog {
 
 		// Validacao da UF do fornecedor
 		else if (cboForUF.getSelectedItem().equals("")) {
-			JOptionPane.showMessageDialog(null, "Selecione a União Federativa (UF) do fornecedor");
+			JOptionPane.showMessageDialog(null, "Selecione a Uniao Federativa (UF) do fornecedor");
 			cboForUF.requestFocus();
 		}
 
@@ -1080,7 +1079,7 @@ public class Fornecedores extends JDialog {
 			catch (SQLIntegrityConstraintViolationException ex) {
 
 				JOptionPane.showMessageDialog(null,
-						"Ocorreu um erro. \nVerifique novamente o CNPJ, a Inscrição Estadual (IE) e/ou a Inscrição Municipal (IM).");
+						"Ocorreu um erro. \nVerifique novamente o CNPJ, a Inscriçao Estadual (IE) e/ou a Inscriçao Municipal (IM).");
 				txtForCNPJ.requestFocus();
 
 			} catch (Exception e) {
@@ -1101,7 +1100,7 @@ public class Fornecedores extends JDialog {
 
 		// Validacao da razao social do fornecedor
 		else if (txtForRazao.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Preencha a razão social do fornecedor");
+			JOptionPane.showMessageDialog(null, "Preencha a razao social do fornecedor");
 			txtForRazao.requestFocus();
 		}
 
@@ -1149,7 +1148,7 @@ public class Fornecedores extends JDialog {
 
 		// Validacao da UF do fornecedor
 		else if (cboForUF.getSelectedItem().equals("")) {
-			JOptionPane.showMessageDialog(null, "Selecione a União Federativa (UF) do fornecedor");
+			JOptionPane.showMessageDialog(null, "Selecione a Uniao Federativa (UF) do fornecedor");
 			cboForUF.requestFocus();
 		}
 
@@ -1219,7 +1218,7 @@ public class Fornecedores extends JDialog {
 
 		// Validacao da razao social do fornecedor
 		else if (txtForRazao.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Preencha a razão social do fornecedor");
+			JOptionPane.showMessageDialog(null, "Preencha a razao social do fornecedor");
 			txtForRazao.requestFocus();
 		}
 
@@ -1267,7 +1266,7 @@ public class Fornecedores extends JDialog {
 
 		// Validacao da UF do fornecedor
 		else if (cboForUF.getSelectedItem().equals("")) {
-			JOptionPane.showMessageDialog(null, "Selecione a União Federativa (UF) do fornecedor");
+			JOptionPane.showMessageDialog(null, "Selecione a Uniao Federativa (UF) do fornecedor");
 			cboForUF.requestFocus();
 		}
 
@@ -1327,7 +1326,7 @@ public class Fornecedores extends JDialog {
 			catch (SQLIntegrityConstraintViolationException ex) {
 
 				JOptionPane.showMessageDialog(null,
-						"Ocorreu um erro. \nVerifique o CNPJ novamente e/ou a Inscrição Estadual (IM).");
+						"Ocorreu um erro. \nVerifique o CNPJ novamente e/ou a Inscriçao Estadual (IM).");
 				txtForCNPJ.requestFocus();
 
 			}
@@ -1350,7 +1349,7 @@ public class Fornecedores extends JDialog {
 
 		// Validacao da razao social do fornecedor
 		else if (txtForRazao.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Preencha a razão social do fornecedor");
+			JOptionPane.showMessageDialog(null, "Preencha a razao social do fornecedor");
 			txtForRazao.requestFocus();
 		}
 
@@ -1398,7 +1397,7 @@ public class Fornecedores extends JDialog {
 
 		// Validacao da UF do fornecedor
 		else if (cboForUF.getSelectedItem().equals("")) {
-			JOptionPane.showMessageDialog(null, "Selecione a União Federativa (UF) do fornecedor");
+			JOptionPane.showMessageDialog(null, "Selecione a Uniao Federativa (UF) do fornecedor");
 			cboForUF.requestFocus();
 		}
 
@@ -1458,7 +1457,7 @@ public class Fornecedores extends JDialog {
 			catch (SQLIntegrityConstraintViolationException ex) {
 
 				JOptionPane.showMessageDialog(null,
-						"Ocorreu um erro. \nVerifique o CNPJ novamente e/ou a Inscrição Municipal (IM).");
+						"Ocorreu um erro. \nVerifique o CNPJ novamente e/ou a Inscriçao Municipal (IM).");
 				txtForCNPJ.requestFocus();
 
 			}
@@ -1481,7 +1480,7 @@ public class Fornecedores extends JDialog {
 
 		// Validacao da razao social do fornecedor
 		else if (txtForRazao.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Preencha a razão social do fornecedor");
+			JOptionPane.showMessageDialog(null, "Preencha a razao social do fornecedor");
 			txtForRazao.requestFocus();
 		}
 
@@ -1529,7 +1528,7 @@ public class Fornecedores extends JDialog {
 
 		// Validacao da UF do fornecedor
 		else if (cboForUF.getSelectedItem().equals("")) {
-			JOptionPane.showMessageDialog(null, "Selecione a União Federativa (UF) do fornecedor");
+			JOptionPane.showMessageDialog(null, "Selecione a Uniao Federativa (UF) do fornecedor");
 			cboForUF.requestFocus();
 		}
 
@@ -1590,7 +1589,7 @@ public class Fornecedores extends JDialog {
 			catch (SQLIntegrityConstraintViolationException ex) {
 
 				JOptionPane.showMessageDialog(null,
-						"Ocorreu um erro. \nVerifique o CNPJ novamente, a Inscrição Estadual (IE) e/ou a Inscrição Municipal (IM).");
+						"Ocorreu um erro. \nVerifique o CNPJ novamente, a Inscriçao Estadual (IE) e/ou a Inscriçao Municipal (IM).");
 				txtForCNPJ.requestFocus();
 
 			}
@@ -1613,7 +1612,7 @@ public class Fornecedores extends JDialog {
 
 		// Validacao da razao social do fornecedor
 		else if (txtForRazao.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Preencha a razão social do fornecedor");
+			JOptionPane.showMessageDialog(null, "Preencha a razao social do fornecedor");
 			txtForRazao.requestFocus();
 		}
 
@@ -1661,7 +1660,7 @@ public class Fornecedores extends JDialog {
 
 		// Validacao da UF do fornecedor
 		else if (cboForUF.getSelectedItem().equals("")) {
-			JOptionPane.showMessageDialog(null, "Selecione a União Federativa (UF) do fornecedor");
+			JOptionPane.showMessageDialog(null, "Selecione a Uniao Federativa (UF) do fornecedor");
 			cboForUF.requestFocus();
 		}
 
@@ -1735,7 +1734,7 @@ public class Fornecedores extends JDialog {
 	private void excluirFornecedor() {
 
 		// Validacao
-		int confirma = JOptionPane.showConfirmDialog(null, "Confirma a exclusão do fornecedor?", "Atenção!",
+		int confirma = JOptionPane.showConfirmDialog(null, "Confirma a exclusao do fornecedor?", "Atençao!",
 				JOptionPane.YES_NO_OPTION);
 
 		// Logica principal
@@ -1764,7 +1763,7 @@ public class Fornecedores extends JDialog {
 				btnBuscar.setEnabled(false);
 
 				// Exibir mensagem ao deletar fornecedor
-				JOptionPane.showMessageDialog(null, "Fornecedor excluído com sucesso!");
+				JOptionPane.showMessageDialog(null, "Fornecedor excluido com sucesso!");
 
 				// NUNCA esquecer de encerrar a conexao
 				con.close();
@@ -1828,7 +1827,7 @@ public class Fornecedores extends JDialog {
 					}
 
 					else {
-						JOptionPane.showMessageDialog(null, "CEP não encontrado");
+						JOptionPane.showMessageDialog(null, "CEP nao encontrado");
 					}
 				}
 			}
@@ -1869,6 +1868,7 @@ public class Fornecedores extends JDialog {
 		btnAlterar.setEnabled(false);
 		btnExcluir.setEnabled(false);
 		btnAdicionar.setEnabled(true);
+		lblStatusCEP.setVisible(false);
 		//txtForIE.setEditable(false);
 		//txtForIM.setEditable(false);
 		//chkIE.setSelected(false);

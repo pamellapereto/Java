@@ -46,12 +46,12 @@ public class Sobre extends JDialog {
 
 		JLabel lblNewLabel = new JLabel("Loja Senhoritta");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel.setBounds(170, 27, 110, 30);
+		lblNewLabel.setBounds(157, 27, 223, 30);
 		getContentPane().add(lblNewLabel);
 
-		JLabel lblSobALicena = new JLabel("Sob a licença MIT");
+		JLabel lblSobALicena = new JLabel("Sob a licenÃ§a MIT");
 		lblSobALicena.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblSobALicena.setBounds(184, 185, 96, 30);
+		lblSobALicena.setBounds(184, 185, 169, 30);
 		getContentPane().add(lblSobALicena);
 
 		JLabel lblSobALicena_1 = new JLabel("");
@@ -59,6 +59,17 @@ public class Sobre extends JDialog {
 		lblSobALicena_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblSobALicena_1.setBounds(126, 177, 48, 48);
 		getContentPane().add(lblSobALicena_1);
+		
+		JLabel lblProjetoDesenvolvidoPor = new JLabel("Projeto desenvolvido por");
+		lblProjetoDesenvolvidoPor.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblProjetoDesenvolvidoPor.setBounds(147, 86, 233, 30);
+		getContentPane().add(lblProjetoDesenvolvidoPor);
+		
+		JLabel Integrantes = new JLabel("Joao Vitor, Jefferson Cruz, Pamella Pereto e Pedro Guedes");
+		Integrantes.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		Integrantes.setBounds(55, 118, 414, 30);
+		getContentPane().add(Integrantes);
+
 
 	} // Fim do construtor
 }

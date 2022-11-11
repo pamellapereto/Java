@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -75,31 +76,35 @@ public class Login extends JFrame {
 
 		JLabel lblNewLabel = new JLabel("Login");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblNewLabel.setBounds(29, 29, 37, 14);
+		lblNewLabel.setBounds(20, 31, 91, 14);
 		contentPane.add(lblNewLabel);
 
 		txtLogin = new JTextField();
-		txtLogin.setBounds(83, 26, 203, 20);
+		txtLogin.setBounds(105, 29, 193, 20);
 		contentPane.add(txtLogin);
 		txtLogin.setColumns(10);
 
 		JLabel lblNewLabel_1 = new JLabel("Senha");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblNewLabel_1.setBounds(30, 66, 55, 14);
+		lblNewLabel_1.setBounds(20, 69, 91, 14);
 		contentPane.add(lblNewLabel_1);
 
 		txtSenha = new JPasswordField();
-		txtSenha.setBounds(83, 64, 203, 20);
+		txtSenha.setBounds(105, 67, 193, 20);
 		contentPane.add(txtSenha);
 
 		JButton btnLogar = new JButton("Acessar");
+		
+		btnLogar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
 		btnLogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				logar();
 			}
 		});
+		
 		btnLogar.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnLogar.setBounds(197, 117, 89, 23);
+		btnLogar.setBounds(171, 117, 152, 23);
 		contentPane.add(btnLogar);
 
 		lblStatus = new JLabel("");
@@ -217,7 +222,7 @@ public class Login extends JFrame {
 					principal.setVisible(true);
 
 					// Setar o nome do usuario na tela principal
-					principal.txtLoginPrincipal.setText("Usu·rio: " + rs.getString(2));
+					principal.txtLoginPrincipal.setText("Usu√°rio: " + rs.getString(2));
 
 					if (perfil.equals("admin")) {
 
@@ -238,6 +243,9 @@ public class Login extends JFrame {
 				else {
 
 					JOptionPane.showMessageDialog(null, "Login e/ou senha invalido(s)!");
+					txtLogin.setText(null);
+					txtSenha.setText(null);
+					txtLogin.requestFocus();
 
 				}
 
